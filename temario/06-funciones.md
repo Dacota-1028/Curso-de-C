@@ -1,3 +1,24 @@
+# Funciones
+
+1. [Introducción](#Introducción)
+2. [Estructura de una función](#Estructura-de-una-función)
+3. [Parámetros de una función](#Parámetros-de-una-función)
+4. [Parámetros const de una función](#Parámetros-const-de-una-función)
+5. [Funciones en línea](#Funciones-en-línea)
+6. [Parametros indefinidos](#Parametros-indefinidos)
+7. [Variables locales y globales](#Variables-locales-y-globales)
+8. [Almacenamiento de Variables](#Almacenamiento-de-Variables)
+9. [Recursividad](#Recursividad)
+10. [Funciones de carácter](#Funciones-de-carácter)
+11. [Funciones numéricas](#Funciones-numéricas)
+12. [Funciones alatorias](#Funciones-alatorias)
+13. [Funciones de fecha y hora](#Funciones-de-fecha-y-hora)
+14. [Presentación de proyecto](#Presentación-de-proyecto)
+15. [Solución del proyecto](#Solución-del-proyecto)
+16. [Conclución](#Conclución)
+
+## Introducción
+
 ## Estructura de una función
 
 En el lenguaje de programación C, una función se puede entender como una tarea o acción específica que se puede realizar de manera independiente y modular. Puedes pensar en una función como un procedimiento o una operación particular que tiene un propósito definido.
@@ -5,6 +26,8 @@ En el lenguaje de programación C, una función se puede entender como una tarea
 Para darte un ejemplo de la vida real, considera la analogía de una biblioteca. Imagina que una biblioteca tiene varias secciones, como la sección de ciencia ficción, la sección de historia y la sección de biografías. Cada sección cumple con una función específica: la sección de ciencia ficción contiene libros de ciencia ficción, la sección de historia contiene libros de historia, y así sucesivamente.
 
 En términos de programación en C, podríamos representar cada sección de la biblioteca como una función. Cada función (sección) realiza una tarea específica y se puede invocar (consultar) cuando sea necesario. Este enfoque modular permite organizar el código de manera más clara y facilita la reutilización de código, de manera similar a cómo una biblioteca organiza diferentes tipos de libros para facilitar el acceso y la gestión.
+
+Las funciones en C no se pueden anidar. Esto significa que una funcion no se puede declarar dentro de otra función. La razón para esto es permitir un acceso muy eficiente a los datos. En C todas las funciones son externas y globales, es decir, pueden ser llamadas desde cualquier parte del programa. 
 
 En el lenguaje de programación C, una función tiene la siguiente estructura general:
 
@@ -64,9 +87,7 @@ En este ejemplo, la función `suma` toma dos parámetros `a` y `b`, realiza la o
 **Llamada a una función**
 La "llamada a una función" se refiere al acto de invocar o ejecutar una función en un programa. Cuando llamas a una función, el control del programa se transfiere a la función correspondiente, que realiza ciertas operaciones y puede devolver un valor.
 
-Conceptualmente, la llamada a una función implica especificar el nombre de la función y proporcionar los valores necesarios (si la función tiene parámetros). El programa luego ejecuta las instrucciones dentro de esa función y, si es necesario, obtiene un resultado que puede ser utilizado en el resto del programa.
-
-Aquí hay un ejemplo sencillo para ilustrar la llamada a una función en el lenguaje de programación C:
+Conceptualmente, la llamada a una función implica especificar el nombre de la función y proporcionar los valores necesarios (si la función tiene parámetros)(argumentos). El programa luego ejecuta las instrucciones dentro de esa función y, si es necesario, obtiene un resultado que puede ser utilizado en el resto del programa.
 
 ```c
 #include <stdio.h>
@@ -132,6 +153,61 @@ int main() {
 
 En este ejemplo, la función `sumaPorValor` recibe copias de `x` e `y`. Aunque se realizan operaciones dentro de la función, los valores originales de `x` e `y` en la función principal no se modifican.
 
+**Prototipos de una función**
+Los prototipos de función son declaraciones previas que le informan al compilador acerca de la existencia de una función antes de que esta sea definida o utilizada en el programa. Los prototipos ayudan al compilador a verificar si se están utilizando las funciones correctamente y a generar mensajes de error en caso de que haya discrepancias.
+
+En C, un prototipo de función generalmente se coloca al inicio del programa o en un archivo de encabezado (.h) para que esté disponible para otras partes del programa. Un prototipo de función tiene la siguiente forma:
+
+```c
+tipo_de_retorno nombre_de_la_funcion(tipo_parametro1, tipo_parametro2, ...);
+```
+
+Donde:
+- `tipo_de_retorno` es el tipo de dato que la función devuelve.
+- `nombre_de_la_funcion` es el nombre de la función.
+- `tipo_parametro1`, `tipo_parametro2`, etc., son los tipos de datos de los parámetros que la función recibe (si la función toma parámetros).
+
+Aquí hay un ejemplo de cómo podrían ser los prototipos para las funciones del código que proporcionaste:
+
+```c
+#include <stdio.h>
+
+// Prototipos de funciones
+void obtenerCaracteres(void);
+void alfabetizar(void);
+void verLetras(void);
+
+int main() {
+    obtenerCaracteres();
+    alfabetizar();
+    verLetras();
+    return 0;
+}
+
+// Definición de funciones
+void obtenerCaracteres(void) {
+    // Código C para obtener una lista de caracteres
+    // ...
+    return;
+}
+
+void alfabetizar(void) {
+    // Código C para ordenar los caracteres alfabéticamente
+    // ...
+    return;
+}
+
+void verLetras(void) {
+    // Código C para visualizar la lista ordenada alfabéticamente
+    // ...
+    return;
+}
+
+// Otras funciones...
+```
+
+En este ejemplo, los prototipos de las funciones (`obtenerCaracteres`, `alfabetizar`, y `verLetras`) se colocan al principio del programa antes de la función `main`. Esto le permite al compilador conocer la firma de las funciones antes de que sean definidas más adelante en el código.
+
 #### Paso de Parámetros por Referencia:
 
 Cuando los parámetros se pasan por referencia, la función recibe direcciones de memoria (punteros) de las variables originales. Esto permite que la función modifique directamente los valores almacenados en esas direcciones de memoria.
@@ -169,7 +245,6 @@ En este ejemplo, la función `sumaPorReferencia` recibe direcciones de memoria d
 
 En resumen, el paso de parámetros por valor implica trabajar con copias, mientras que el paso por referencia permite trabajar directamente con las variables originales mediante punteros. La elección entre ambos métodos depende de la necesidad de modificar o no los valores originales.
 
-## Visivilidad de una función
 ## Parámetros const de una función
 
 En el lenguaje de programación C, el uso del calificador `const` en los parámetros de una función indica que la función no modificará el valor al que apunta el parámetro. Esto proporciona una forma de hacer que los parámetros de la función sean "solo lectura", lo que puede ser útil para evitar cambios accidentales en los datos originales y para indicar la intención del programador de no modificar esos datos.
@@ -226,7 +301,7 @@ La principal diferencia entre los parámetros `const` y los parámetros sin el c
 
 El uso de parámetros `const` es útil para documentar y garantizar que ciertas funciones no alteren los datos originales. También puede ayudar al compilador a realizar optimizaciones, ya que sabe que los datos no cambiarán en la función.
 
-## Funciones en linea
+## Funciones en línea
 
 **Texto Mejorado:**
 
@@ -1153,3 +1228,7 @@ La biblioteca `time.h` en C proporciona funciones para trabajar con fechas y hor
   ```
 
 Estos ejemplos ilustran cómo utilizar funciones de la biblioteca `time.h` para obtener información sobre la fecha y hora actuales, así como para medir el tiempo de ejecución o utilizar el tiempo actual como semilla para la generación de números aleatorios. Ten en cuenta que algunas funciones, como `_strdate` y `_strtime`, pueden no estar disponibles en todas las implementaciones de C.
+
+## Presentación de proyecto
+## Solución del proyecto
+## Conclución
