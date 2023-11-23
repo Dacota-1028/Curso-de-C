@@ -13,7 +13,7 @@ Un array (lista o tabla) es una secuencia de datos del mismo tipo. Los datos se 
 
 Un array puede contener, por ejemplo, la edad de los alumnos de una clase, las temperaturas de cada día de un mes en una ciudad determinada, o el número de personas que residen en cada una de las diecisiete comunidades autónomas españolas. Cada ítem del array se denomina elemento.
 
-Los elementos de un array se numeran, como ya se ha comentado, consecutivamente 0, 1, 2, 3, ... Estos números se denominan valores índice o subíndice del array. El término "subíndice" se utiliza ya que se especifica igual que en matemáticas, como una secuencia tal como q1, a2, a3... Estos números localizan la posición del elemento dentro del array, proporcionando acceso directo al array.
+Los elementos de un array se numeran, como ya se ha comentado, consecutivamente 0, 1, 2, 3, ... Estos números se denominan valores índice o subíndice del array. El término "subíndice" se utiliza ya que se especifica igual que en matemáticas, como una secuencia tal como a_sub_0, a_2, a_3... Estos números localizan la posición del elemento dentro del array, proporcionando acceso directo al array.
 
 Si el nombre del array es `a`, entonces `a[0]` es el nombre del elemento que está en la posición 0, `a[1]` es el nombre del elemento que está en la posición 1, etc. En general, el elemento i-ésimo está en la posición i-1. De modo que si el array tiene n elementos, sus nombres son `a[0]`, `a[1]`, ..., `a[n-1]`. Gráficamente se representa así el array `a` con seis elementos.
 
@@ -21,7 +21,7 @@ Si el nombre del array es `a`, entonces `a[0]` es el nombre del elemento que est
 **Figura Array de seis elementos.**
 
 
-El array `a` tiene 6 elementos: `a[0]` contiene 25.1, `a[1]` contiene 34.2, `a[2]` contiene 5.25, `a[3]` contiene 7.45, `a[4]` contiene 6.09 y `a[5]` contiene 7.54. El diagrama de la Figura 8.1 representa realmente una región de la memoria de la computadora, ya que un array se almacena siempre con sus elementos en una secuencia de posiciones de memoria contigua.
+El array `a` tiene 6 elementos: `a[0]` contiene 34, `a[1]` contiene 12, `a[2]` contiene 87, `a[3]` contiene 56, `a[4]` contiene 90 y `a[5]` contiene 38. El diagrama de la Figura  representa realmente una región de la memoria de la computadora, ya que un array se almacena siempre con sus elementos en una secuencia de posiciones de memoria contigua.
 
 En C, los índices de un array siempre tienen como límite inferior 0 y como índice superior el tamaño del array menos 1.
 
@@ -39,7 +39,7 @@ Por ejemplo, para crear un array (lista) de diez variables enteras, se escribe:
 int numeros[10];
 ```
 
-Esta declaración hace que el compilador reserve espacio suficiente para contener diez valores enteros. En C, los enteros ocupan, normalmente, 2 bytes, de modo que un array de diez enteros ocupa 20 bytes de memoria. La Figura 8.2 muestra el esquema de un array de diez elementos; cada elemento puede tener su propio valor.
+Esta declaración hace que el compilador reserve espacio suficiente para contener diez valores enteros. En C, los enteros ocupan, normalmente, 2 bytes, de modo que un array de diez enteros ocupa 20 bytes de memoria. La Figura muestra el esquema de un array de diez elementos; cada elemento puede tener su propio valor.
 
 **Array de datos enteros:**
 
@@ -56,7 +56,7 @@ printf("%d\n", numeros[4]);
 Visualiza el valor del elemento 5 del array. Los arrays siempre comienzan en el elemento 0. Así pues, el array `numeros` contiene los siguientes elementos individuales:
 
 ```c
-numeros[0] numeros[1] numeros[2] numeros[3] numeros[4] numeros[7] numeros[8]
+numeros[0] numeros[1] numeros[2] numeros[3] numeros[4] numeros[7] numeros[8] numeros[9]
 ```
 
 Si, por ejemplo, se quiere crear un array de números reales y su tamaño es una constante representada por un parámetro `#define N 20`, se puede hacer:
@@ -81,10 +81,8 @@ scanf("%f", &vector[2]);
 El índice de un array se denomina, con frecuencia, subíndice del array. El término procede de las matemáticas, donde un subíndice se utiliza para representar un elemento determinado.
 
 ```c
-numeros[0] equivale a 
-numeros[3] equivale a 
-numeros[0] 
-numeros[13]
+numeros[0] equivale a numeros[0] 
+numeros[3] equivale a numeros[13]
 ```
 
 El método de numeración del elemento i-ésimo con el índice o subíndice i-1 se denomina indexación basada en cero. Su uso tiene el efecto de que el índice de un elemento del array es siempre el mismo que el número de "pasos" desde el elemento inicial hasta ese elemento. Por ejemplo, `a[3]` está a 3 pasos o posiciones del elemento `a[0]`. La ventaja de este método se verá de modo más evidente al tratar las relaciones entre arrays y punteros.
@@ -139,11 +137,11 @@ int edades[5];
 char codigos[5];
 ```
 
-se representan gráficamente en memoria en la Figura 8.3.
+se representan gráficamente en memoria en la Figura.
 
 ![Descripción de la imagen](../img/array_03.png)
 
-**Figura 8.3. Almacenamiento en memoria de arrays.**
+Almacenamiento en memoria de arrays.**
 
 **Nota:**
 Todos los subíndices de los arrays comienzan con 0.
@@ -151,10 +149,11 @@ Todos los subíndices de los arrays comienzan con 0.
 **Precaución:**
 C permite asignar valores fuera de rango a los subíndices. Se debe tener cuidado de no realizar esta acción, ya que se podrían sobrescribir datos o código.
 
-Los arrays de caracteres funcionan de igual forma que los arrays numéricos, partiendo de la base de que cada carácter ocupa normalmente un byte. Así, por ejemplo, un array llamado `nombre` se puede representar en la Figura 8.4.
+Los arrays de caracteres funcionan de igual forma que los arrays numéricos, partiendo de la base de que cada carácter ocupa normalmente un byte. Así, por ejemplo, un array llamado `nombre` se puede representar en la Figura.
 
 ![Descripción de la imagen](../img/array_04.png)
-**Figura 8.4. Almacenamiento de un array de caracteres en memoria.**
+
+**Almacenamiento de un array de caracteres en memoria.**
 
 **A tener en cuenta:** En las cadenas de caracteres, el sistema siempre inserta un último carácter (nulo) para indicar fin de cadena.
 

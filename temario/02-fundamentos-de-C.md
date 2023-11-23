@@ -1,3 +1,14 @@
+## Temario
+1. [Introducción](#Introducción)
+2. [Comentarios](#Comentarios)
+3. [Tipos de datos](#Tipos-de-datos)
+4. [Limites de rango de los tipos de datos y bytes](#Limites-de-rango-de-los-tipos-de-datos-y-bytes)
+5. [Variables](#Variables)
+6. [Constantes](#Constantes)
+7. [Salida de datos](#Salida-de-datos)
+8. [Entrada de datos](#Entrada-de-datos)
+9. [Resumen](#Resumen)
+## Introducción
 ## Comentarios
 En el lenguaje de programación C, los comentarios son utilizados para proporcionar información adicional dentro del código fuente. Los comentarios no afectan la ejecución del programa y son ignorados por el compilador. Sirven para documentar el código, hacer anotaciones, explicar la lógica detrás de ciertas secciones o para cualquier otro propósito de documentación.
 
@@ -31,6 +42,12 @@ Los comentarios en C son una herramienta esencial para el desarrollo de software
 
 En programación, un "tipo de dato" es una clasificación que especifica qué tipo de valores puede tomar una variable y qué operaciones se pueden realizar con esos valores. Los tipos de datos son esenciales para la declaración y manipulación de variables en un programa. 
 
+Los tipos de datos son fundamentales para cualquier programador, ya que definen el tipo de valores que pueden ser almacenados y manipulados en un programa. En C, existen varios tipos de datos, y vamos a explorar los más comunes.
+
+Empecemos por los tipos de datos primitivos. Estos son los bloques de construcción básicos de cualquier programa en C. Los tipos primitivos incluyen enteros, números de punto flotante, caracteres y booleanos.
+
+
+
 Un tipo de dato tiene un conjunto de valores que una variable puede contener y las operaciones que se pueden realizar con esos valores. 
 
 - **Enteros(integers):** Representan números enteros decimales, como -5, 0, 42.
@@ -42,7 +59,9 @@ Un tipo de dato tiene un conjunto de valores que una variable puede contener y l
 |   long       |      8 bytes                  |
 |   long long  |      8 bytes                  |
 
-- **Punto flotante(floating-point):** Representa números con decimales, como 3.14, -0.001.
+Estos tipos representan números enteros de diferentes tamaños. El short puede almacenar números pequeños, mientras que long long es perfecto para gigantescos valores. ¿Alguna pregunta hasta ahora?
+
+- **Punto flotante(floating-point):** Si necesitas trabajar con números decimales, entonces el tipo de dato punto flotante (float o double) es tu elección. Por ejemplo:
 
 |     Tipo     |   Tamaño de byte (64 bits)   |
 |--------------|------------------------------|
@@ -50,7 +69,7 @@ Un tipo de dato tiene un conjunto de valores que una variable puede contener y l
 |     double   |             8 bytes          |
 |  long double |            16 bytes          |
 
-- **Caracteres (characters):** Representa un solo carácter como 'a', '9'.
+- **Caracteres (characters):** Ahora, hablemos del tipo de dato caracter (char). Este tipo se utiliza para almacenar un solo carácter. Por ejemplo:
 
 |    Tipo    |    Tamaño de byte (64 bits)    |
 |------------|--------------------------------|
@@ -583,3 +602,6 @@ La entrada de datos en el lenguaje de programación C se realiza principalmente 
     ```
 
     Ten en cuenta que se utiliza `&` antes del nombre de la variable para pasar la dirección de memoria de la variable a la función `scanf()`.
+
+
+## Resumen
