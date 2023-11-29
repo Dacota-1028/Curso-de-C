@@ -1,3 +1,19 @@
+# Operadores
+
+## Temario
+1. [Introducción](#Introducción)
+2. [Operadores Aritméticos](#Operadores-Aritméticos)
+3. [Operadores de Asignación](#Operadores-de-Asignación)
+4. [Operadores de Comparación](#Operadores-de-Comparación)
+5. [Operadores de Logicos](#Operadores-de-Logicos)
+6. [Incremento y Decremento](#Incremento-y-Decremento)
+7. [Prioridad de los Operadores](#Prioridad-de-los-Operadores)
+8. [Conversión de Datos](#Conversión-de-Datos)
+9. [Operador sizeof()](#Operador-sizeof())
+10. [Resumen](#Resumen)
+
+## Introducción
+
 ## Operadores Aritméticos
 
 Los operadores aritméticos en el lenguaje de programación C se utilizan para realizar operaciones matemáticas en variables numéricas. Aquí tienes una descripción de los operadores aritméticos comunes en C, junto con sus conceptos y ejemplos:
@@ -392,6 +408,57 @@ int main() {
 
 Estos operadores de incremento y decremento son especialmente útiles en bucles y operaciones matemáticas donde es necesario ajustar el valor de las variables de manera eficiente.
 
+## Prioridad de los Operadores
+
+En el lenguaje de programación C, los operadores de asignación tienen una prioridad más baja que la mayoría de los otros operadores. Además, tienen asociatividad de derecha a izquierda, lo que significa que las asignaciones se evalúan de derecha a izquierda en expresiones encadenadas.
+
+La tabla a continuación muestra algunos operadores comunes en C, ordenados por prioridad de mayor a menor:
+
+1. `()`: Paréntesis (mayor prioridad)
+2. `[]`: Corchetes
+3. `.` y `->`: Acceso a miembro de estructura y puntero a miembro
+4. `++` y `--`: Incremento y decremento unario
+5. `+`, `-`: Positivo y negativo unarios
+6. `*`, `/`, `%`: Multiplicación, división y módulo
+7. `+`, `-`: Suma y resta
+8. `<<`, `>>`: Desplazamiento de bits a la izquierda y a la derecha
+9. `<`, `<=`, `>`, `>=`: Operadores de comparación
+10. `==`, `!=`: Igualdad y desigualdad
+11. `&`: AND a nivel de bits
+12. `^`: XOR a nivel de bits
+13. `|`: OR a nivel de bits
+14. `&&`: AND lógico
+15. `||`: OR lógico
+16. `? :`: Operador ternario (condicional)
+17. `=`: Operador de asignación (asociatividad de derecha a izquierda, baja prioridad)
+
+Es importante tener en cuenta que, aunque la asignación (`=`) tiene una prioridad baja, su asociatividad de derecha a izquierda significa que las asignaciones se evalúan de derecha a izquierda en expresiones encadenadas. Esto puede tener un impacto en el resultado cuando se tienen múltiples asignaciones en una sola expresión.
+
+Vamos a crear un ejemplo con una ecuación que involucre varios operadores, incluyendo operadores de asignación, en el lenguaje de programación C:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 10, c = 2, d = 3;
+
+    int resultado = a * b + (c > d ? c : d) / 2; // Ejemplo de expresión
+
+    printf("Resultado: %d\n", resultado);
+
+    return 0;
+}
+```
+
+En este ejemplo:
+
+- `a * b`: Multiplicación de `a` por `b`.
+- `(c > d ? c : d)`: Operador ternario que evalúa si `c` es mayor que `d`. Si es verdadero, se selecciona `c`, de lo contrario, se selecciona `d`.
+- `... / 2`: La expresión del operador ternario se divide por `2`.
+- `resultado = ...`: El resultado se asigna a la variable `resultado` utilizando el operador de asignación.
+
+Recuerda que en C, las expresiones se evalúan de acuerdo con la prioridad y asociatividad de los operadores, y es importante usar paréntesis para asegurar el orden deseado de evaluación cuando sea necesario. En este ejemplo, los paréntesis se utilizan para controlar la evaluación de la expresión dentro del operador ternario antes de la división.
+
 ## Conversión de Datos
 
 La conversión de datos en el lenguaje de programación C se refiere al proceso de cambiar el tipo de datos de una variable a otro. Existen dos tipos principales de conversiones: la conversión implícita y la conversión explícita.
@@ -501,3 +568,5 @@ printf("El tamaño de un int es: %zu bytes\n", sizeof(int));
 - No es necesario utilizar paréntesis alrededor de la expresión en el operador `sizeof` si esta es un tipo de dato.
 
 El operador `sizeof()` es una herramienta valiosa para escribir código portátil y para gestionar la asignación dinámica de memoria de manera eficiente.
+
+## Resumen

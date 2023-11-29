@@ -1,3 +1,19 @@
+# Control de flujo
+
+## Temario
+1. [Introducción](#Introducción)
+2. [If-else](#If-else)
+3. [else-if](#else-if)
+4. [switch](#switch)
+5. [Condiones anidados](#Condiones-anidados)
+6. [Operador ternario](#Operador-ternario)
+7. [Introducción](#Introducción)
+8. [Introducción](#Introducción)
+9. [Introducción](#Introducción)
+10. [Introducción](#Introducción)
+
+# Introducción
+
 ## If-else
 
 La estructura de control `if-else` en programación se utiliza para tomar decisiones basadas en una condición. Esta estructura es fundamental para el control del flujo del programa. A continuación, te proporciono una explicación y un ejemplo simple basado en una situación de la vida real:
@@ -51,6 +67,50 @@ En este ejemplo:
 - Dependiendo del resultado de la condición, se imprime un mensaje adecuado en la consola.
 
 Este es un ejemplo simple, pero la estructura `if-else` se puede utilizar para manejar decisiones más complejas en programas más grandes. Es una forma fundamental de controlar el flujo de ejecución en la mayoría de los programas.
+
+En el lenguaje de programación C, la instrucción `if` y `else` normalmente se utiliza con llaves `{}` para delimitar el bloque de código que se ejecutará condicionalmente. Sin embargo, si solo hay una instrucción en cada bloque, las llaves son opcionales. Esto es especialmente cierto cuando trabajas con un solo comando después de `if` o `else`.
+
+Aquí tienes un ejemplo que ilustra cómo usar `if` y `else` sin llaves:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int numero = 10;
+
+    // Ejemplo de if sin llaves
+    if (numero > 5)
+        printf("El numero es mayor que 5.\n");
+    else
+        printf("El numero no es mayor que 5.\n");
+
+    return 0;
+}
+```
+
+En este ejemplo, la instrucción `if` y la instrucción `else` tienen una sola línea de código después de ellas, por lo que las llaves no son necesarias. Sin embargo, ten en cuenta que esto solo es válido cuando hay una única instrucción después de `if` o `else`. Si necesitas ejecutar múltiples instrucciones condicionalmente, entonces las llaves son obligatorias para agruparlas en un bloque.
+
+En el lenguaje de programación C, el uso de `if` en una sola línea sin llaves es posible, siempre que se tenga en cuenta que solo la siguiente instrucción después del `if` (o `else`) está condicionada.
+
+Aquí hay un ejemplo:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int numero = 10;
+
+    // Ejemplo de if en una sola línea
+    if (numero > 5) printf("El numero es mayor que 5.\n");
+    else printf("El numero no es mayor que 5.\n");
+
+    return 0;
+}
+```
+
+En este caso, la instrucción `printf` que sigue a cada `if` o `else` está condicionada por la evaluación de la expresión correspondiente. Si la expresión dentro del `if` es verdadera, se ejecuta la primera instrucción; de lo contrario, se ejecuta la segunda instrucción después del `else`.
+
+Es importante tener en cuenta que, aunque este estilo puede hacer que el código sea más conciso, también puede hacer que el código sea menos legible, especialmente si hay múltiples instrucciones dentro del bloque `if` o `else`. Se recomienda utilizar llaves `{}` para agrupar las instrucciones, incluso si son solo una línea, para mejorar la claridad y evitar errores potenciales.
 
 ## else-if
 

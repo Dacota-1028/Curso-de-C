@@ -1,3 +1,17 @@
+# Estructura de control
+
+## Temario
+1. [Introducción](#Introducción)
+2. [While](#While)
+3. [Do-while](#Do-while)
+4. [For](#For)
+5. [Bucles anidados](#Bucles-anidados)
+6. [Break](#Break)
+7. [Continue](#Continue)
+8. [Resumen](#Resumen)
+
+## Introducción
+
 ## While
 
 El bucle `while` en C se utiliza para repetir un bloque de código mientras una condición dada sea verdadera. Aquí está la explicación clara, la sintaxis y cómo poner condiciones en el bucle:
@@ -445,3 +459,5 @@ En este ejemplo, el bucle `for` se utiliza para imprimir solo los números impar
 - Es útil para omitir ciertas operaciones o bloques de código en casos específicos dentro de un bucle.
 
 El uso de `continue` permite un control más preciso del flujo dentro de bucles, omitiendo secciones específicas de código en función de condiciones particulares. Es importante usar `continue` con cuidado para evitar la creación de lógica de código confusa o difícil de entender.
+
+## Resumen

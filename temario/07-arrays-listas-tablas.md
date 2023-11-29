@@ -1,446 +1,516 @@
 ## Temario
 1. [Array (Lista, Tabla)](#IArray-(Lista,-Tabla)ntroducción)
-2. [Inicialización de un array](#Inicialización-de-un-array)
-3. [Array de caracteres y cadenas de texto](#Array-de-caracteres-y-cadenas-de-texto)
-4. [Arrays Multidimensionales](#Arrays-Multidimensionales)
-5. [UTILIZACIÓN DE ARRAYS COMO PARÁMETROS](#UTILIZACIÓN-DE-ARRAYS-COMO-PARÁMETROS)
-6. [ORDENACIÓN DE LISTAS](#ORDENACIÓN-DE-LISTAS)
-7. [BÚSQUEDA EN LISTAS](#BÚSQUEDA-EN-LISTAS)
+2. [Declarción de un array](#Declarción-de-un-array)
+3. [Subíndices de un array](#Subíndices-de-un-array)
+4. [Almacenamiento en memoria](#Almacenamiento-en-memoria)
+5. [Tamaño de los arrays](#Tamaño-de-los-arrays)
+6. [Caracteres y cadenas de texto](#Caracteres-y-cadenas-de-texto)
+7. [Arrays Multidimensionales](#Arrays-Multidimensionales)
+7. [Inicialización de arrays bidimensional](#Inicialización-de-arrays-bidimensional)
+7. [Acceso a los elementos de los arrays bidimensionales](#Acceso-a-los-elementos-de-los-arrays-bidimensionales)
+7. [Uso de arrays bidimensionales en bucles](#Uso-de-arrays-bidimensionales-en-bucles)
+7. [Array en parámetros](#Array-en-parámetros)
+7. [Paso de cadenas como parámetros](#Paso-de-cadenas-como-parámetros)
+7. [Algoritmo de la burbuja](#Algoritmo-de-la-burbuja)
+7. [Búsqueda de listas](#Búsqueda-de-listas)
 
-## Array (Lista, Tabla)
+### Arrays (Arreglos):
 
-Un array (lista o tabla) es una secuencia de datos del mismo tipo. Los datos se llaman elementos del array y se numeran consecutivamente 0, 1, 2, 3, etc. El tipo de elementos almacenados en el array puede ser cualquier tipo de dato de C, incluyendo estructuras definidas por el usuario, como se describirá más tarde. Normalmente, el array se utiliza para almacenar tipos tales como char, int o float.
+En programación, un array (o arreglo) es una estructura de datos que almacena elementos del mismo tipo en posiciones consecutivas de memoria. Los elementos del array se acceden mediante un índice o posición. El índice generalmente comienza en 0. Por ejemplo, en un array de números enteros `int numeros[5]`, los elementos son `numeros[0]`, `numeros[1]`, ..., `numeros[4]`.
 
-Un array puede contener, por ejemplo, la edad de los alumnos de una clase, las temperaturas de cada día de un mes en una ciudad determinada, o el número de personas que residen en cada una de las diecisiete comunidades autónomas españolas. Cada ítem del array se denomina elemento.
+**Características de los Arrays:**
+- **Tamaño Fijo:** Los arrays tienen un tamaño fijo una vez que se han declarado, y no pueden cambiar de tamaño durante la ejecución del programa.
+- **Acceso Rápido:** Los elementos se acceden directamente mediante un índice, lo que permite un acceso rápido y eficiente.
+- **Elementos del Mismo Tipo:** Todos los elementos del array deben ser del mismo tipo.
 
-Los elementos de un array se numeran, como ya se ha comentado, consecutivamente 0, 1, 2, 3, ... Estos números se denominan valores índice o subíndice del array. El término "subíndice" se utiliza ya que se especifica igual que en matemáticas, como una secuencia tal como a_sub_0, a_2, a_3... Estos números localizan la posición del elemento dentro del array, proporcionando acceso directo al array.
+### Listas:
 
-Si el nombre del array es `a`, entonces `a[0]` es el nombre del elemento que está en la posición 0, `a[1]` es el nombre del elemento que está en la posición 1, etc. En general, el elemento i-ésimo está en la posición i-1. De modo que si el array tiene n elementos, sus nombres son `a[0]`, `a[1]`, ..., `a[n-1]`. Gráficamente se representa así el array `a` con seis elementos.
+En contraste, las listas son estructuras de datos más dinámicas y flexibles. En lugar de un tamaño fijo, las listas pueden crecer o reducirse dinámicamente durante la ejecución del programa. En la mayoría de los lenguajes de programación, las listas se implementan como listas enlazadas o listas dinámicas.
 
-![Descripción de la imagen](../img/array_01.png)
-**Figura Array de seis elementos.**
+**Características de las Listas:**
+- **Tamaño Dinámico:** Las listas pueden cambiar de tamaño durante la ejecución del programa.
+- **Inserción y Eliminación Eficientes:** Las operaciones de inserción y eliminación son eficientes en listas, ya que no requieren cambios en el tamaño del array.
+- **Elementos de Distintos Tipos:** Pueden contener elementos de diferentes tipos.
 
+### Tablas:
 
-El array `a` tiene 6 elementos: `a[0]` contiene 34, `a[1]` contiene 12, `a[2]` contiene 87, `a[3]` contiene 56, `a[4]` contiene 90 y `a[5]` contiene 38. El diagrama de la Figura  representa realmente una región de la memoria de la computadora, ya que un array se almacena siempre con sus elementos en una secuencia de posiciones de memoria contigua.
+En el contexto de bases de datos y hojas de cálculo, el término "tabla" se refiere a una estructura de dos dimensiones que organiza datos en filas y columnas. Cada fila representa un conjunto de datos relacionados, y cada columna representa un atributo específico. Las tablas pueden ser vistas como matrices bidimensionales, donde las filas son los registros y las columnas son los campos.
 
-En C, los índices de un array siempre tienen como límite inferior 0 y como índice superior el tamaño del array menos 1.
+**Características de las Tablas:**
+- **Estructura Bidimensional:** Organiza datos en filas y columnas.
+- **Relaciones Explícitas:** Cada fila tiene una relación con las demás, y cada columna representa un atributo específico.
+- **Utilización en Bases de Datos:** Ampliamente utilizado en el diseño de bases de datos relacionales y en hojas de cálculo.
 
-### Declarción de un array
+### Ejemplo de la Vida Real:
 
-Al igual que con cualquier tipo de variable, se debe declarar un array antes de utilizarlo. Un array se declara de modo similar a otros tipos de datos, excepto que se debe indicar al compilador el tamaño o longitud del array. Para indicar al compilador el tamaño o longitud del array, se debe hacer seguir al nombre, el tamaño encerrado entre corchetes. La sintaxis para declarar un array de una dimensión determinada es:
-
-```c
-tipo nombreArray[numeroDeElementos];
-```
-
-Por ejemplo, para crear un array (lista) de diez variables enteras, se escribe:
-
-```c
-int numeros[10];
-```
-
-Esta declaración hace que el compilador reserve espacio suficiente para contener diez valores enteros. En C, los enteros ocupan, normalmente, 2 bytes, de modo que un array de diez enteros ocupa 20 bytes de memoria. La Figura muestra el esquema de un array de diez elementos; cada elemento puede tener su propio valor.
-
-**Array de datos enteros:**
-
-![Descripción de la imagen](../img/array_02.png)
-
-Un array de enteros se almacena en bytes consecutivos de memoria. Cada elemento utiliza dos bytes. Se accede a cada elemento de array mediante un índice que comienza en cero. Así, el elemento quinto (`a[4]`) del array ocupa los bytes 9 y 10. La Figura muestra el almacenamiento de un array en memoria.
-
-Se puede acceder a cada elemento del array utilizando un índice en el nombre del array. Por ejemplo:
+**Arrays:**
+Supongamos que tienes un programa que almacena las calificaciones de los estudiantes en un array. Cada elemento del array representa la calificación de un estudiante específico.
 
 ```c
-printf("%d\n", numeros[4]);
+int calificaciones[10];  // Array de calificaciones para 10 estudiantes
 ```
 
-Visualiza el valor del elemento 5 del array. Los arrays siempre comienzan en el elemento 0. Así pues, el array `numeros` contiene los siguientes elementos individuales:
+**Listas:**
+Imagina una lista de reproducción en una aplicación de música. Puedes agregar o eliminar canciones fácilmente, y la lista puede crecer o reducirse según tus preferencias.
+
+```python
+playlist = ["Canción1", "Canción2", "Canción3"]
+playlist.append("Canción4")  # Agregar una nueva canción
+playlist.remove("Canción2")  # Eliminar una canción
+```
+
+**Tablas:**
+En una hoja de cálculo, podrías tener una tabla que organiza los gastos mensuales de tu hogar. Cada fila representa un mes y cada columna representa una categoría de gasto.
+
+| Mes       | Alquiler | Comida | Transporte |
+| --------- | -------- | ------ | ---------- |
+| Enero     | 1000     | 300    | 150        |
+| Febrero   | 1000     | 350    | 120        |
+| Marzo     | 1000     | 320    | 130        |
+
+En resumen, los arrays, listas y tablas son estructuras de datos comunes, cada una con sus propias características y aplicaciones. Los arrays son estáticos y de tamaño fijo, las listas son dinámicas y pueden cambiar de tamaño, y las tablas son estructuras bidimensionales utilizadas para organizar datos en filas y columnas.
+
+## Declarción de un array
+
+En C, los arrays se declaran y se inicializan de diversas formas. Aquí tienes ejemplos de las diferentes maneras de declarar y inicializar arrays:
+
+### Declaración y Dimensionamiento Básico:
 
 ```c
-numeros[0] numeros[1] numeros[2] numeros[3] numeros[4] numeros[7] numeros[8] numeros[9]
+int numeros[5];  // Declaración de un array de enteros con tamaño 5
 ```
 
-Si, por ejemplo, se quiere crear un array de números reales y su tamaño es una constante representada por un parámetro `#define N 20`, se puede hacer:
+En este ejemplo, `numeros` es un array de enteros con espacio para almacenar 5 elementos. Los índices van desde 0 hasta 4.
+
+### Inicialización con Valores:
 
 ```c
-float vector[N];
+int primos[] = {2, 3, 5, 7, 11};  // Inicialización con valores
 ```
 
-Para acceder al elemento 3 y leer un valor de entrada:
+En este caso, el tamaño del array se infiere automáticamente por la cantidad de valores proporcionados entre llaves.
+
+### Declaración e Inicialización Separadas:
 
 ```c
-scanf("%f", &vector[2]);
+int pares[4];  // Declaración
+pares[0] = 2;   // Inicialización individual
+pares[1] = 4;
+pares[2] = 6;
+pares[3] = 8;
 ```
 
-***Precaución***
+Puedes declarar un array primero y luego asignar valores individualmente.
 
-***En C, no se comprueba automáticamente que los índices del array estén dentro del rango definido. Por ejemplo, se puede intentar acceder a `numeros[12]` y el compilador no producirá ningún error, lo que puede resultar en un fallo en su programa, dependiendo del contexto en el que se encuentre el error.***
-
-
-### Subíndices de un array
-
-El índice de un array se denomina, con frecuencia, subíndice del array. El término procede de las matemáticas, donde un subíndice se utiliza para representar un elemento determinado.
+### Inicialización con Cero:
 
 ```c
-numeros[0] equivale a numeros[0] 
-numeros[3] equivale a numeros[13]
+int edades[3] = {0};  // Todos los elementos inicializados a 0
 ```
 
-El método de numeración del elemento i-ésimo con el índice o subíndice i-1 se denomina indexación basada en cero. Su uso tiene el efecto de que el índice de un elemento del array es siempre el mismo que el número de "pasos" desde el elemento inicial hasta ese elemento. Por ejemplo, `a[3]` está a 3 pasos o posiciones del elemento `a[0]`. La ventaja de este método se verá de modo más evidente al tratar las relaciones entre arrays y punteros.
+En este caso, todos los elementos del array `edades` se inicializan a 0.
 
-**Ejemplos**
+### Inicialización Parcial:
 
 ```c
-int edad[5]; // Array edad contiene 5 elementos: el primero, edad[0] y el último, edad[4].
+int datos[5] = {1, 2};  // Solo los primeros dos elementos se inicializan
 ```
 
-Declara 2 arrays de enteros.
-```c
-int pesos[25], longitudes[100];
-```
+Si proporcionas menos valores que el tamaño del array, los elementos restantes se inicializan a 0 (en el caso de enteros).
 
-Declara un array de 25 elementos float.
-```c
-float salarios[25];
-```
-
-Declara un array de 50 elementos double.
-```c
-double temperaturas[50];
-```
-
-Declara un array de caracteres.
-```c
-char letras[15];
-```
-
-Usando una constante `MX` definida con `#define`.
-```c
-#define MX 120
-char buffer[MX + 1]; // Declara un array de caracteres de tamaño MX + 1, el primer elemento es buffer[0] y el último buffer[MX].
-```
-
-En los programas se pueden referenciar elementos del array utilizando fórmulas para los subíndices. Mientras que el subíndice puede evaluar a un entero, se puede utilizar una constante, una variable o una expresión para el subíndice. Así, algunas referencias individuales a elementos son:
+### Inicialización de Cadenas de Caracteres:
 
 ```c
-edad[4]
-ventas[total + 5]
-bonos[mes]
-salario[mes][i * 5]
+char saludo[] = "Hola";  // Inicialización de una cadena de caracteres
 ```
 
-### **Almacenamiento en memoria de los arrays**
+En este ejemplo, `saludo` es un array de caracteres que contiene la cadena "Hola". La longitud del array se ajusta automáticamente para acomodar la cadena y el carácter nulo `\0` al final.
 
-Los elementos de los arrays se almacenan en bloques contiguos. Así, por ejemplo, los arrays:
+### Uso de Constantes y Expresiones:
 
 ```c
-int edades[5];
-char codigos[5];
+#define TAMANO 3
+int numeros[TAMANO] = {1, 2, 3};  // Declaración con un tamaño definido por una constante
 ```
 
-se representan gráficamente en memoria en la Figura.
+Puedes usar constantes o expresiones para definir el tamaño del array.
 
-![Descripción de la imagen](../img/array_03.png)
+Recuerda que en C, los arrays tienen un tamaño fijo y la memoria para ellos se asigna en tiempo de compilación. Para tamaños de array variables o dinámicos, se pueden utilizar técnicas como la asignación dinámica de memoria.
 
-Almacenamiento en memoria de arrays.**
+## Subíndices de un array
 
-**Nota:**
-Todos los subíndices de los arrays comienzan con 0.
+En programación, un subíndice (o índice) de un array es un número entero utilizado para acceder a un elemento específico en el array. Los subíndices comienzan generalmente desde cero y se incrementan en uno para cada elemento subsiguiente. Aquí tienes información detallada sobre los subíndices de un array:
 
-**Precaución:**
-C permite asignar valores fuera de rango a los subíndices. Se debe tener cuidado de no realizar esta acción, ya que se podrían sobrescribir datos o código.
+### Características Clave:
 
-Los arrays de caracteres funcionan de igual forma que los arrays numéricos, partiendo de la base de que cada carácter ocupa normalmente un byte. Así, por ejemplo, un array llamado `nombre` se puede representar en la Figura.
+1. **Inicio en Cero:**
+   - En la mayoría de los lenguajes de programación, incluido C, los subíndices de arrays comienzan en cero. Por ejemplo, el primer elemento de un array tiene un subíndice de 0, el segundo tiene un subíndice de 1, y así sucesivamente.
 
-![Descripción de la imagen](../img/array_04.png)
+2. **Acceso a Elementos:**
+   - Los subíndices se utilizan para acceder a elementos individuales del array. La notación es `nombreArray[subíndice]`.
 
-**Almacenamiento de un array de caracteres en memoria.**
+3. **Operaciones Aritméticas:**
+   - Puedes realizar operaciones aritméticas con los subíndices para acceder a elementos específicos o para realizar iteraciones sobre el array.
 
-**A tener en cuenta:** En las cadenas de caracteres, el sistema siempre inserta un último carácter (nulo) para indicar fin de cadena.
+### Ejemplos Prácticos:
 
-### **El tamaño de los arrays**
-
-El operador `sizeof` devuelve el número de bytes necesarios para contener su argumento. Si se usa `sizeof` para solicitar el tamaño de un array, esta función devuelve el número de bytes reservados para el array completo.
-
-Por ejemplo, supongamos que se declara un array de enteros de 100 elementos denominado `edades`; si se desea conocer el tamaño del array, se puede utilizar una sentencia similar a:
+#### Acceso a Elementos:
 
 ```c
-n = sizeof(edades);
+int numeros[5] = {10, 20, 30, 40, 50};
+
+// Acceso a elementos individuales
+int primerElemento = numeros[0];   // 10
+int segundoElemento = numeros[1];  // 20
 ```
 
-Donde `n` tomará el valor 400 (si un entero ocupa 4 bytes). Si se desea solicitar el tamaño de un elemento individual del array, tal como:
+#### Modificación de Elementos:
 
 ```c
-n = sizeof(edades[6]);
+int numeros[5] = {10, 20, 30, 40, 50};
+
+// Modificación de elementos
+numeros[2] = 35;  // Cambia el tercer elemento a 35
 ```
 
-`n` almacenará el valor 4 (número de bytes que contienen un entero).
+### Límites y Errores Comunes:
 
-**8.1.5. Verificación del rango del índice de un array**
+1. **Fuera de Límites (Buffer Overflow):**
+   - Acceder a un índice fuera de los límites del array puede resultar en comportamientos indefinidos y errores en tiempo de ejecución. Es crucial asegurarse de que los índices estén dentro de los límites del array.
 
-C, al contrario que otros lenguajes de programación, por ejemplo, Pascal, no verifica el valor del índice de la variable que representa al array. Así, por ejemplo, en Pascal si se define un array `a` con índices 0 a 5, entonces `a[6]` hará que el programa se "rompa" en tiempo de ejecución.
+   ```c
+   int numeros[5] = {10, 20, 30, 40, 50};
+   int valor = numeros[10];  // Acceso fuera de los límites
+   ```
 
-**Ejemplo 8.1**
+2. **Tamaño del Array:**
+   - El tamaño del array determina la cantidad de elementos accesibles. Acceder a elementos más allá del tamaño declarado resultará en errores.
 
-Protección frente a errores en el intervalo (rango) de valores de una variable de índice que representa un array.
+   ```c
+   int numeros[5] = {10, 20, 30, 40, 50};
+   int valor = numeros[5];  // Acceso fuera de los límites
+   ```
+
+3. **Índices Negativos:**
+   - En C, los índices negativos no están permitidos y pueden llevar a comportamientos indefinidos o errores.
+
+   ```c
+   int numeros[5] = {10, 20, 30, 40, 50};
+   int valor = numeros[-1];  // Acceso con índice negativo
+   ```
+
+### Usos Comunes:
+
+1. **Acceso Secuencial:**
+   - Los subíndices son fundamentales para acceder a elementos de un array de manera secuencial o mediante iteración.
+
+2. **Manipulación de Datos:**
+   - Los subíndices se utilizan para leer o modificar datos almacenados en posiciones específicas del array.
+
+3. **Cálculos con Arrays:**
+   - Operaciones aritméticas con subíndices pueden utilizarse para realizar cálculos específicos en conjuntos de datos.
+
+4. **Recorrido Bidimensional:**
+   - En arrays bidimensionales, se utilizan dos subíndices para acceder a elementos en filas y columnas.
 
 ```c
-double suma(const double a[], const int n) {
-    double S = 0.0;
-    if (n * sizeof(double) > sizeof(a)) {
-        for (int i = 0; i < n; i++) {
-            S += a[i];
-        }
-        return S;
-    }
-    return 0;
-}
+int matriz[3][4];  // Array bidimensional
+int valor = matriz[1][2];  // Acceso a un elemento específico
 ```
 
-## Inicialización de un array
+En resumen, los subíndices son esenciales para acceder y manipular datos en arrays. Es importante entender las reglas y límites asociados con los subíndices para evitar errores y comportamientos indefinidos en el código.
 
-Se deben asignar valores a los elementos del array antes de utilizarlos, tal como se asignan valores a variables. Para asignar valores a cada elemento del array de enteros `precios`, se puede escribir:
+## Almacenamiento en memoria
 
-```c
-precios[0] = 10;
-precios[1] = 20;
-precios[2] = 30;
-precios[4] = 40;
-...
-```
+El almacenamiento en memoria de los arrays en lenguajes de programación, como C, es fundamental para entender cómo se organizan y acceden a los elementos de un array. Aquí tienes una explicación detallada sobre cómo se almacenan en memoria los arrays:
 
-La primera sentencia fija `precios[0]` al valor 10, `precios[1]` al valor 20, etc. Sin embargo, este método no es práctico cuando el array contiene muchos elementos. El método utilizado normalmente es inicializar el array completo en una sola sentencia.
+### Organización en Memoria:
 
-Cuando se inicializa un array, el tamaño del array se puede determinar automáticamente por las constantes de inicialización. Estas constantes se separan por comas y se encierran entre llaves, como en los siguientes ejemplos:
+1. **Contigüidad:**
+   - Los elementos de un array se almacenan de manera contigua en la memoria. Esto significa que cada elemento está ubicado justo después del anterior.
 
-```c
-int numeros[6] = {10, 20, 30, 40, 50, 60};
-int n[3] = {3, 4, 5}; // Declara un array de 3 elementos
-char c[4] = {'L', 'u', 'i', 's'}; // Declara un array de 4 elementos
-```
+2. **Tamaño del Elemento:**
+   - El tamaño de cada elemento del array (en bytes) depende del tipo de datos. Por ejemplo, un array de enteros (`int`) tendrá elementos de 4 bytes en sistemas de 32 bits y de 8 bytes en sistemas de 64 bits.
 
-El array `numeros` tiene 6 elementos, `n` tiene 3 elementos y el array `c` tiene 4 elementos.
+### Dirección Base y Desplazamiento:
 
-**Nota:** En C, los arrays de caracteres, las cadenas, se caracterizan por tener un carácter final que indica el fin de la cadena, es el carácter nulo. Lo habitual es inicializar un array de caracteres (una variable cadena) con una constante cadena.
+1. **Dirección Base:**
+   - La dirección base es la dirección de memoria del primer elemento del array. Se refiere a la posición de memoria donde comienza el array.
 
-```c
-char s[] = "Puesta del Sol";
-```
+2. **Desplazamiento:**
+   - El desplazamiento es la diferencia entre la dirección base y la dirección de un elemento específico. Se calcula multiplicando el índice del elemento por el tamaño del elemento.
 
-**Nota:** Pueden usarse corchetes vacíos, solo cuando se asignan valores al array.
+   ```c
+   int numeros[5];         // Dirección base de 'numeros'
+   int direccionElemento2 = (int)&numeros[2];  // Dirección de 'numeros[2]'
+   int desplazamiento = direccionElemento2 - (int)&numeros[0];
+   ```
 
-```c
-int cuenta[] = {15, 25, -45, 0, 50};
-```
+### Acceso a Elementos:
 
-El compilador asigna automáticamente cinco elementos a `cuenta`.
+1. **Notación de Subíndice:**
+   - La notación de subíndice (`array[indice]`) se traduce a una operación de acceso a memoria que involucra la dirección base, el tamaño del elemento y el índice.
 
-El método de inicializar arrays mediante valores constantes después de su definición es adecuado cuando el número de elementos del array es pequeño. Por ejemplo, para inicializar un array (lista) de 10 enteros a los valores 10 a 1, y a continuación visualizar dichos valores en un orden inverso, se puede escribir:
+   ```c
+   int numeros[5] = {10, 20, 30, 40, 50};
+   int valor = numeros[2];
+   ```
 
-```c
-int cuenta[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-for (i = 9; i >= 0; i--)
-    printf("\n cuenta descendente %d = %d", i, cuenta[i]);
-```
+   En este ejemplo, `numeros[2]` se traduce en la dirección base de `numeros` más el desplazamiento equivalente al índice 2 multiplicado por el tamaño de un entero.
 
-Se pueden asignar constantes simbólicas como valores numéricos, de modo que las siguientes sentencias son válidas:
+2. **Aritmética de Punteros:**
+   - La aritmética de punteros permite realizar operaciones directamente sobre direcciones de memoria. Es útil para acceder y recorrer arrays.
 
-```c
-#define ENE 31
-#define FEB 28
-#define MAR 31
-int meses[12] = {ENE, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SEP, OCT, NOV, DIC};
-```
+   ```c
+   int numeros[5] = {10, 20, 30, 40, 50};
+   int *ptr = numeros;    // 'ptr' apunta al primer elemento
+   int tercerElemento = *(ptr + 2);  // Acceso al tercer elemento usando aritmética de punteros
+   ```
 
-Pueden asignarse valores a un array utilizando un bucle `for` o `while/do-while`, y este suele ser el sistema más empleado normalmente. Por ejemplo, para inicializar todos los valores del array `numeros` al valor 0, se puede utilizar la siguiente sentencia:
+### Tamaño Total del Array:
 
-```c
-for (i = 0; i <= 5; i++)
-    numeros[i] = 0;
-```
+1. **Tamaño en Bytes:**
+   - El tamaño total del array se calcula multiplicando el número de elementos por el tamaño del elemento.
 
-Debido a que el valor del subíndice `i` varía de 0 a 5, cada elemento del array `numeros` se inicializa y establece a cero.
+   ```c
+   int numeros[5];    // Tamaño total: 5 * sizeof(int) bytes
+   ```
 
-**Ejemplo 8.2**
-
-El programa `INICIALI.C` lee ocho enteros; a continuación, visualiza el total de los números.
+### Ejemplo Práctico:
 
 ```c
 #include <stdio.h>
-#define NUM 8
 
 int main() {
-    int nums[NUM];
-    int i;
-    int total = 0;
+    int numeros[5] = {10, 20, 30, 40, 50};
+    
+    // Acceso a elementos usando subíndices
+    printf("Elemento 2: %d\n", numeros[2]);
+    
+    // Acceso a elementos usando aritmética de punteros
+    int *ptr = numeros;
+    printf("Elemento 3: %d\n", *(ptr + 3));
 
-    for (i = 0; i < NUM; i++) {
-        printf("Por favor, introduzca el número: ");
-        scanf("%d", &nums[i]);
-    }
-
-    printf("\nLista de números: ");
-    for (i = 0; i < NUM; i++) {
-        printf("%d ", nums[i]);
-        total += nums[i];
-    }
-
-    printf("\nLa suma de los números es %d", total);
     return 0;
 }
 ```
 
-Las variables globales que representan arrays se inicializan a 0 por defecto. Por ello, la ejecución del siguiente programa visualiza 0 para los 10 valores del array:
+En este ejemplo, se ilustra cómo se accede a elementos de un array tanto mediante subíndices como mediante aritmética de punteros.
+
+### Consideraciones Importantes:
+
+- **Fuera de Límites:**
+  - Acceder a elementos fuera de los límites del array puede llevar a comportamientos indefinidos y errores en tiempo de ejecución.
+
+- **Tamaño Estático:**
+  - En C, el tamaño del array suele ser estático y debe conocerse en tiempo de compilación.
+
+- **Apuntadores y Direcciones:**
+  - Los apuntadores y las direcciones de memoria son conceptos clave en la manipulación y acceso a arrays.
+
+Comprender el almacenamiento en memoria de los arrays es esencial para escribir código eficiente y evitar errores relacionados con el acceso a la memoria. La organización contigua de los elementos y la aritmética de punteros son conceptos fundamentales en este aspecto.
+
+## Tamaño de los arrays
+
+La función `sizeof()` en C se utiliza para determinar el tamaño en bytes de un tipo de datos o de una variable específica. Cuando se aplica a un array, `sizeof()` devuelve el tamaño total en bytes del array. Aquí tienes una explicación detallada sobre cómo utilizar `sizeof()` para obtener el tamaño de los arrays:
+
+### Sintaxis Básica de `sizeof()`:
 
 ```c
-int lista[10];
+size_t sizeof(tipo);
+```
+
+- `sizeof`: Es el operador que devuelve el tamaño en bytes del tipo de datos o de la variable.
+- `tipo`: Es el tipo de datos o la variable cuyo tamaño se desea conocer.
+
+### Uso de `sizeof()` con Arrays:
+
+```c
+int numeros[5];
+size_t tamanoArray = sizeof(numeros);
+```
+
+En este ejemplo, `sizeof(numeros)` devolverá el tamaño total en bytes del array `numeros`. El resultado se almacena en la variable `tamanoArray` de tipo `size_t`.
+
+### Ejemplo Práctico:
+
+```c
+#include <stdio.h>
 
 int main() {
-    int j;
+    int numeros[5];
+    char caracteres[10];
 
-    for (j = 0; j <= 9; j++)
-        printf("\n lista[%d] = %d", j, lista[j]);
+    size_t tamanoNumeros = sizeof(numeros);
+    size_t tamanoCaracteres = sizeof(caracteres);
+
+    printf("Tamaño de numeros: %zu bytes\n", tamanoNumeros);
+    printf("Tamaño de caracteres: %zu bytes\n", tamanoCaracteres);
 
     return 0;
 }
 ```
 
-Así, por ejemplo, en:
+Este programa muestra cómo utilizar `sizeof()` para obtener el tamaño en bytes de dos arrays diferentes (`numeros` y `caracteres`). Ten en cuenta que se utiliza `%zu` como formato de impresión para el tipo `size_t`.
 
-```c
-int Notas[5];
-static char Nombres[5];
-```
+### Aspectos Importantes:
 
-Si se define un array globalmente o un array estático y no se proporciona ningún valor de inicialización, el compilador inicializará el array con un valor por defecto (cero para arrays de elementos enteros y reales -coma flotante- y carácter nulo para arrays de caracteres).
+1. **Tamaño del Elemento:**
+   - El resultado de `sizeof()` representa el tamaño total en bytes del array, considerando el tamaño de cada elemento. Por lo tanto, el tamaño del array es el producto del número de elementos por el tamaño de cada elemento.
 
-   Notas                                             Nombres
-[0] 0                                                 101 ´\0´
-[1] 0                                                 [1] ´\0´
-[2] 0                                                 [2] ´\0´
-[3] 0                                                 [3] ´\0´
-[4] 0                                                 [4] ´\0´
+2. **Tipos de Datos:**
+   - `sizeof()` se puede aplicar a cualquier tipo de datos en C, ya sea un tipo primitivo, una estructura o un array.
 
+   ```c
+   size_t tamanoEntero = sizeof(int);
+   size_t tamanoEstructura = sizeof(struct MiEstructura);
+   ```
 
-## Array de caracteres y cadenas de texto
+3. **Variables Dinámicas y Punteros:**
+   - Cuando se utiliza `sizeof()` con variables dinámicas o punteros, el tamaño que se obtiene es el tamaño del tipo de datos al que apunta el puntero, no el tamaño de la memoria que el puntero podría estar apuntando.
 
-Una cadena de texto es un conjunto de caracteres, tales como "ABCDEFG". C soporta cadenas de texto utilizando un array de caracteres que contenga una secuencia de caracteres:
+   ```c
+   int *ptr = malloc(5 * sizeof(int));
+   size_t tamanoPuntero = sizeof(ptr);  // Tamaño del puntero, no del bloque de memoria
+   ```
 
-```c
-char cadena[] = "ABCDEFG";
-```
+4. **Uso en Funciones:**
+   - Puedes utilizar `sizeof()` dentro de funciones para determinar el tamaño de los parámetros o variables locales.
 
-Es importante comprender la diferencia entre un array de caracteres y una cadena. Las cadenas contienen un carácter nulo al final del array de caracteres.
+   ```c
+   void imprimirTamano(int array[]) {
+       size_t tamano = sizeof(array);
+       printf("Tamaño del array en la función: %zu bytes\n", tamano);
+   }
+   ```
 
-![Figura 8.5. (a) Array de caracteres; (b) cadena.](imagen_8_5.png)
+   Ten en cuenta que en el contexto de funciones, `sizeof(array)` devolverá el tamaño de un puntero, no el tamaño del array completo.
 
+### Conclusiones:
 
-![Descripción de la imagen](../img/array_05.png)
+- `sizeof()` es una herramienta útil para determinar el tamaño en bytes de tipos de datos y variables en C.
+- Cuando se aplica a un array, devuelve el tamaño total del array en bytes.
+- Ten en cuenta que el tamaño del array incluye todos sus elementos multiplicados por el tamaño de cada elemento.
+- Es importante considerar el tipo de datos y entender cómo `sizeof()` se comporta con punteros y variables dinámicas.
 
-![Descripción de la imagen](../img/array_06.png)
+## Caracteres y cadenas de texto
 
-```c
-Cadena[3] = 'D';
-Cadena[4] = 'E';
-Cadena[5] = 'F';
-Cadena[6] = '\0';
-```
+En C, un array de caracteres y una cadena de caracteres son conceptos relacionados, pero tienen diferencias importantes en su comportamiento y uso. Aquí tienes una explicación detallada sobre ambos:
 
-Sin embargo, no se puede asignar una cadena a un array del siguiente modo:
+### Array de Caracteres:
 
-```c
-Cadena = "ABCDEF";
-```
+1. **Definición y Declaración:**
+   - Un array de caracteres es simplemente un array que contiene elementos de tipo `char`. Puedes definir y declarar un array de caracteres de la siguiente manera:
 
-Para copiar una constante cadena o copiar una variable de cadena a otra variable de cadena, se debe utilizar la función de la biblioteca estándar `strcpy()` ("copiar cadenas"). `strcpy()` permite copiar una constante de cadena en una cadena. Para copiar el nombre "Abracadabra" en el array `nombre`, se puede escribir:
+     ```c
+     char miArray[5];  // Declaración de un array de caracteres con tamaño 5
+     ```
 
-```c
-strcpy(nombre, "Abracadabra"); /* Copia Abracadabra en nombre */
-```
+2. **Almacenamiento en Memoria:**
+   - Los elementos de un array de caracteres se almacenan de manera contigua en la memoria. Cada elemento ocupa un byte, ya que el tipo de datos `char` tiene un tamaño de 1 byte.
 
-`strcpy()` añade un carácter nulo al final de la cadena. A fin de evitar errores en la sentencia anterior, se debe asegurar que el array de caracteres `nombre` tenga elementos suficientes para contener la cadena situada a su derecha.
+     ```c
+     char miArray[] = {'H', 'o', 'l', 'a', '\0'};  // El '\0' indica el final de la cadena
+     ```
 
-**Ejemplo 8.3**
+3. **Acceso a Elementos:**
+   - Puedes acceder a cada carácter del array mediante su índice, similar a cualquier otro tipo de array.
 
-Rellenar los elementos de un array con números reales positivos procedentes del teclado.
+     ```c
+     char primerCaracter = miArray[0];  // 'H'
+     ```
+
+4. **Cadena de Terminación Nula:**
+   - Es común finalizar un array de caracteres con el carácter nulo `'\0'` para indicar el final de la cadena. Esto es fundamental para que las funciones de manipulación de cadenas en C sepan dónde termina la cadena.
+
+     ```c
+     char saludo[] = "Hola";  // '\0' se añade automáticamente al final
+     ```
+
+### Cadena de Caracteres:
+
+1. **Definición y Declaración:**
+   - En C, una cadena de caracteres es simplemente un array de caracteres que termina con el carácter nulo (`'\0'`). La cadena de caracteres se representa mediante un puntero al primer carácter del array.
+
+     ```c
+     char saludo[] = "Hola";  // Es una cadena de caracteres
+     ```
+
+2. **Funciones de Cadena de C:**
+   - Las funciones de manipulación de cadenas en C (por ejemplo, `strlen`, `strcpy`, `strcat`, `strcmp`) operan en cadenas de caracteres. Estas funciones utilizan el carácter nulo para determinar el final de la cadena.
+
+3. **Almacenamiento en Memoria:**
+   - La cadena de caracteres se almacena de manera similar a un array de caracteres, con la diferencia clave de que se espera que termine con el carácter nulo `'\0'`.
+
+     ```c
+     char saludo[] = "Hola";  // '\0' se añade automáticamente al final
+     ```
+
+### Diferencias Clave:
+
+1. **Tamaño Dinámico:**
+   - Un array de caracteres tiene un tamaño fijo, mientras que una cadena de caracteres puede tener un tamaño dinámico según la longitud de la cadena.
+
+     ```c
+     char arrayFijo[10];        // Tamaño fijo
+     char cadenaDinamica[20];   // Tamaño dinámico
+     ```
+
+2. **Carácter Nulo:**
+   - Un array de caracteres no siempre necesita contener el carácter nulo `'\0'`. En cambio, una cadena de caracteres se espera que termine con `'\0'` para indicar su final.
+
+3. **Uso en Funciones:**
+   - Las funciones de manipulación de cadenas en C están diseñadas para trabajar con cadenas de caracteres y requieren que la cadena termine con `'\0'`. Por lo tanto, aunque un array de caracteres puede ser tratado como una cadena, es importante tener en cuenta la terminación nula al trabajar con funciones de cadenas.
+
+### Ejemplo de Comportamiento en Memoria:
 
 ```c
 #include <stdio.h>
 
-/* Constantes y variables globales */
-#define MAX 10
-float muestra[MAX];
+int main() {
+    char array[] = {'H', 'o', 'l', 'a'};  // Array de caracteres sin terminación nula
+    char cadena[] = "Hola";  // Cadena de caracteres con terminación nula
 
-void main() {
-    int i;
-    printf("\nIntroduzca una lista de %d elementos positivos.\n", MAX);
-    for (i = 0; i < MAX; muestra[i] > 0 ? ++i : i)
-        scanf("%f", &muestra[i]);
+    printf("Array: %s\n", array);   // Imprimir array como cadena (puede ser impredecible)
+    printf("Cadena: %s\n", cadena); // Imprimir cadena correctamente
+
+    return 0;
 }
 ```
 
-En el bucle principal, solo se incrementa `i` si `muestra[i]` es positivo: `muestra[i] > 0 ? ++i : i`. Con este incremento condicional, se garantiza que todos los valores almacenados sean positivos.
+En este ejemplo, el array de caracteres `array` no tiene terminación nula, por lo que imprimirlo como una cadena con `%s` puede dar lugar a un comportamiento impredecible o incorrecto. En cambio, la cadena de caracteres `cadena` se imprime correctamente porque tiene terminación nula.
 
-**Ejemplo 8.4**
-
-Visualizar el array `muestra` después de introducir datos en el mismo, separándolos con el tabulador.
-
-```c
-#include <stdio.h>
-#define MAX 10
-float muestra[MAX];
-
-void main() {
-    int i;
-    printf("\nIntroduzca una lista de %d elementos positivos.\n", MAX);
-    for (i = 0; i < MAX; muestra[i] > 0 ? ++i : i)
-        scanf("%f", &muestra[i]);
-    printf("\nDatos leídos del teclado: ");
-    for (i = 0; i < MAX; ++i)
-        printf("%f\t", muestra[i]);
-}
-```
+En resumen, un array de caracteres es una secuencia de elementos `char` sin garantía de terminación nula, mientras que una cadena de caracteres es un array de caracteres que termina con el carácter nulo `'\0'`. Al trabajar con funciones de manipulación de cadenas en C, es crucial tener en cuenta la terminación nula para evitar errores y comportamientos inesperados.
 
 ## Arrays Multidimensionales
 
-Los arrays vistos anteriormente se conocen como arrays unidimensionales (una sola dimensión) y se caracterizan por tener un solo subíndice. Estos arrays se conocen también por el término listas. Los arrays multidimensionales son aquellos que tienen más de una dimensión y, en consecuencia, más de un índice. Los arrays más usuales son los de dos dimensiones, conocidos también por el nombre de tablas o matrices. Sin embargo, es posible crear arrays de tantas dimensiones como requieran sus aplicaciones, esto es, tres, cuatro o más dimensiones.
+**Concepto de un Array Bidimensional en C:**
 
-Un array de dos dimensiones equivale a una tabla con múltiples filas y múltiples columnas (Fig. 8.6).
+Un array bidimensional en C es una estructura de datos que organiza la información en dos dimensiones, similar a una cuadrícula o una matriz. Se compone de filas y columnas, y cada elemento en el array puede ser identificado por dos índices: uno para la fila y otro para la columna. Visualmente, se asemeja a una tabla con filas y columnas, donde cada celda contiene un valor específico.
 
-![Descripción de la imagen](../img/array_07.png)
+**Ejemplos de la Vida Real:**
 
-![Figura 8.6. Estructura de un array de dos dimensiones.](imagen_8_6.png)
+1. **Matrices Matemáticas:**
+   - Un array bidimensional se puede usar para representar matrices matemáticas, donde las filas y columnas representan elementos y operaciones matriciales.
 
-Obsérvese que en el array bidimensional de la Figura 8.6, si las filas se etiquetan de 0 a m y las columnas de 0 a n, el número de elementos que tendrá el array será el resultado del producto (m+1) x (n+1). El sistema de localizar un elemento será por las coordenadas representadas por su número de fila y su número de columna (a, b). La sintaxis para la declaración de un array de dos dimensiones es:
+2. **Tablas de Datos:**
+   - En una base de datos, una tabla puede ser representada como un array bidimensional. Las filas pueden representar registros y las columnas los diferentes campos de datos.
 
-```c
-<tipo de datoElemento> <nombre array>[<NúmeroDeFilas>][<NúmeroDeColumnas>];
-```
+3. **Mapas y Gráficos:**
+   - En aplicaciones de gráficos y cartografía, un array bidimensional puede representar un mapa, donde cada posición contiene información sobre un punto específico.
 
-Algunos ejemplos de declaración de tablas:
+4. **Juegos de Tablero:**
+   - Los tableros de juegos como el ajedrez o el gato pueden modelarse como arrays bidimensionales, donde cada celda representa una posición en el tablero.
 
-```c
-char Pantalla[25][80];
-int puestos[6][8];
-int equipos[4][30];
-int matriz[4][2];
-```
+**Comportamiento en la Memoria:**
 
-**Atención:**
-Al contrario que otros lenguajes, C requiere que cada dimensión esté encerrada entre corchetes. La sentencia
+- En términos de almacenamiento en memoria, los elementos de un array bidimensional se organizan de manera contigua. Pueden almacenarse por filas o por columnas, dependiendo de la implementación del compilador. Cada fila es un bloque contiguo de memoria, y el conjunto de filas conforma la estructura bidimensional.
+  
+- Visualmente, el array se asemeja a una cuadrícula, pero en la memoria, los elementos están dispuestos de manera lineal. El acceso a un elemento específico implica el cálculo de la dirección de memoria basado en los índices de fila y columna.
 
-```c
-int equipo[4, 30];
-```
+En resumen, un array bidimensional en C es una representación eficiente para organizar datos en dos dimensiones. Su uso es común en situaciones donde la información se estructura en filas y columnas, como en matemáticas, bases de datos, juegos de tablero y gráficos. La organización en la memoria facilita el acceso y manipulación de elementos, proporcionando una estructura versátil para modelar datos del mundo real.
 
-no es válida.
-
-Un array de dos dimensiones en realidad es un array de arrays. Es decir, es un array unidimensional, y cada elemento no es un valor entero, o de coma flotante o carácter, sino que cada elemento es otro array.
-
-Los elementos de los arrays se almacenan en memoria de modo que el subíndice más próximo al nombre del array es la fila y el otro subíndice, la columna. En la Tabla 8.1 se representan todos los elementos y sus posiciones relativas en memoria del array, int tabla[4][2], suponiendo que cada entero ocupa 2 bytes.
-
-![Figura 8.7. Tablas de dos dimensiones.](imagen_8_7.png)
-
-**8.4.1. Inicialización de arrays multidimensionales**
+## Inicialización de arrays bidimensional
 
 Los arrays multidimensionales se pueden inicializar, al igual que los de una dimensión, cuando se declaran. La inicialización consta de una lista de constantes separadas por comas y encerradas entre llaves, como en los ejemplos siguientes:
 
@@ -449,583 +519,529 @@ Los arrays multidimensionales se pueden inicializar, al igual que los de una dim
 2. `int tabla[2][3] = {{5, 6, 7}, {8, 9, 10}};`
 3. `int tabla[2][3] = { {5, 6, 7}, {8, 9, 10} };`
 
-![Figura 8.8. Almacenamiento en memoria de tabla[3][4].](imagen_8_8.png)
+En C, hay varias formas de inicializar arrays bidimensionales, y la elección de la forma dependerá de la preferencia del programador y del contexto en el que se esté utilizando el array. Aquí están algunas de las formas comunes de inicializar arrays bidimensionales:
 
-**8.4.2. Acceso a los elementos de los arrays bidimensionales**
+### Forma 1: Inicialización en la Declaración
 
-Se puede acceder a los elementos de arrays bidimensionales de igual forma que a los elementos de un array unidimensional. La diferencia reside en que en los elementos bidimensionales deben especificarse los índices de la fila y la columna.
-
-El formato general para asignación directa de valores a los elementos es:
+Puedes inicializar un array bidimensional directamente en el momento de la declaración. En este enfoque, se proporcionan los valores de los elementos dentro de llaves y se utilizan corchetes anidados para representar las filas y columnas.
 
 ```c
-<nombre array>[indice fila][indice columna] = valor elemento;
+int matriz1[3][4] = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12}
+};
 ```
 
-y para la extracción de elementos:
+### Forma 2: Inicialización por Filas
+
+Cuando inicializas un array bidimensional por filas, solo proporcionas los valores de los elementos de cada fila en un conjunto de llaves. El compilador infiere el tamaño de la columna basándose en la cantidad de elementos en la primera fila.
 
 ```c
-<variable> = <nombre array>[indice fila][indice columna];
+int matriz2[][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
 ```
 
-Algunos ejemplos de inserciones:
+### Forma 3: Inicialización Individual de Elementos
+
+Puedes inicializar un array bidimensional proporcionando valores individuales de cada elemento, utilizando corchetes anidados para representar filas y columnas.
 
 ```c
-tabla[2][3] = 4.5;
-resistencias[1][4] = 50;
-AsientosLibres[5][12] = 5;
+int matriz3[2][2] = {
+    {1, 2},
+    {3, 4}
+};
 ```
 
-y de extracción de valores:
+### Forma 4: Uso de Inicializadores de Cadenas
+
+Puedes usar inicializadores de cadenas para inicializar arrays bidimensionales. En este caso, cada cadena representa una fila de la matriz.
 
 ```c
-Ventas = Tabla[1][1];
-Dia = Semana[3][6];
+int matriz4[][5] = {
+    [0] = {1, 2, 3, 4, 5},
+    [1] = {6, 7, 8, 9, 10}
+};
 ```
 
-**8.4.3. Lectura y escritura de elementos de arrays bidimensionales**
+### Forma 5: Inicialización por Defecto
 
-Las funciones de entrada o salida se aplican de igual forma a los elementos de un array bidimensional. Por ejemplo:
+Si no proporcionas ningún valor al inicializar un array bidimensional, todos los elementos se inicializarán a cero (o a un valor nulo, en el caso de punteros).
 
 ```c
-int tabla[3][4];
-double resistencias[4][5];
-
-scanf("%d", &tabla[2][3]);
-printf("%4d", tabla[1][1]);
-
-scanf("%lf", &resistencias[2][4]);
-if (asientosLibres[3][1])
-    // ...
-else
-    // ...
+int matriz5[2][3];  // Todos los elementos se inicializan a 0
 ```
 
-**8.
+### Explicación:
 
-4.4. Acceso a elementos mediante bucles**
+- En todas las formas, los corchetes exteriores representan las filas y los corchetes interiores representan las columnas.
+  
+- La primera dimensión del array bidimensional puede omitirse cuando se utiliza inicialización por filas; el compilador infiere el tamaño basándose en el número de elementos en la primera fila.
 
-Se puede acceder a los elementos de arrays bidimensionales mediante bucles anidados. Su sintaxis es:
+- Si el tamaño de la segunda dimensión se omite, el compilador lo infiere automáticamente.
+
+- Puedes utilizar índices específicos para inicializar filas, lo que puede hacer que el código sea más legible.
 
 ```c
-int IndiceFila, IndiceCol;
-for (IndiceFila = 0; IndiceFila < NumFilas; ++IndiceFila)
-    for (IndiceCol = 0; IndiceCol < NumCol; ++IndiceCol)
-        Procesar elemento[IndiceFila][IndiceCol];
+int matriz6[][4] = {
+    [2] = {1, 2, 3, 4},
+    [0] = {5, 6, 7, 8},
+    [1] = {9, 10, 11, 12}
+};
 ```
 
-**Ejemplo 8.9:**
-Definir una tabla de discos, rellenar la tabla con datos de entrada y mostrarlos en pantalla.
+La elección entre estas formas depende del contexto y de las preferencias personales del programador. Las formas más explícitas pueden hacer que el código sea más fácil de leer y entender, mientras que las formas abreviadas pueden ser útiles para inicializaciones más simples y concisas.
+
+## Acceso a los elementos de los arrays bidimensionales
+
+El acceso a los elementos de un array bidimensional en C implica el uso de dos índices, uno para la fila y otro para la columna. Aquí está la sintaxis para acceder a los elementos:
 
 ```c
-float discos[2][4];
-int fila, col;
-for (fila = 0; fila < 2; fila++)
-    for (col = 0; col < 4; col++)
-        scanf("%f", &discos[fila][col]);
-
-// Visualizar la tabla
-for (fila = 0; fila < 2; fila++)
-    for (col = 0; col < 4; col++)
-        printf("\n Pts %.lf \n", discos[fila][col]);
+tipo_dato valor = array_bidimensional[fila][columna];
 ```
 
-**Ejercicio 8.1:**
-Lectura y visualización de un array de dos dimensiones. La función `leer()` lee un array (una tabla) de dos dimensiones y la función `visualizar()` presenta la tabla en la pantalla.
+- `array_bidimensional`: Es el nombre del array bidimensional.
+- `fila`: Representa el índice de la fila del elemento al que se desea acceder.
+- `columna`: Representa el índice de la columna del elemento al que se desea acceder.
+- `tipo_dato`: Es el tipo de dato de los elementos en el array bidimensional.
+
+Ejemplo práctico con una matriz de 3x4:
+
+```c
+int matriz[3][4] = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12}
+};
+
+int valor = matriz[1][2];  // Accede al elemento en la segunda fila y tercera columna (7)
+```
+
+En este ejemplo, `matriz[1][2]` accede al valor 7, que está en la segunda fila y tercera columna de la matriz.
+
+Es importante recordar que los índices de los arrays en C comienzan desde 0, por lo que el índice de la primera fila es 0, el índice de la segunda fila es 1, y así sucesivamente. Lo mismo se aplica a las columnas. Acceder a elementos fuera de los límites del array puede provocar comportamientos indefinidos o errores en tiempo de ejecución.
+
+## Uso de arrays bidimensionales en bucles
+
+La lectura y escritura de elementos en arrays bidimensionales en C se realiza mediante el uso de bucles anidados. Aquí te proporciono ejemplos prácticos para ilustrar estos procesos:
+
+### Escritura de Elementos:
+
+Supongamos que tienes una matriz de 3x4:
+
+```c
+int matriz[3][4];
+```
+
+Para escribir valores en la matriz, puedes utilizar bucles anidados. Por ejemplo, puedes llenar la matriz con valores consecutivos:
 
 ```c
 #include <stdio.h>
 
-/* prototipos */
-void leer(int a[3][5]);
-void visualizar(const int a[3][5]);
-
 int main() {
-    int a[3][5];
-    leer(a);
-    visualizar(a);
-    return 0;
-}
+    int matriz[3][4];
+    int contador = 1;
 
-void leer(int a[3][5]) {
-    int i, j;
-    puts("Introduzca 15 números enteros, 3 por fila");
-    for (i = 0; i < 3; i++) {
-        printf("Fila %d: ", i);
-        for (j = 0; j < 5; j++)
-            scanf("%d", &a[i][j]);
+    // Escribir valores en la matriz
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            matriz[i][j] = contador++;
+        }
     }
-}
 
-void visualizar(const int a[3][5]) {
-    int i, j;
-    for (i = 0; i < 3; i++) {
-        printf("Fila %d: ", i);
-        for (j = 0; j < 5; j++)
-            printf("%d ", a[i][j]);
+    // Imprimir la matriz
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            printf("%d ", matriz[i][j]);
+        }
         printf("\n");
     }
-}
-```
-### Arrays de más de dos dimensiones
-
-C proporciona la posibilidad de almacenar varias dimensiones, aunque raramente los datos del mundo real requieren más de dos o tres dimensiones. El medio más fácil de visualizar un array de tres dimensiones es imaginando un cubo, como se muestra en la Figura 8.10.
-
-Un array tridimensional se puede considerar como un conjunto de arrays bidimensionales combinados para formar, en profundidad, una tercera dimensión. El cubo se construye con filas (dimensión vertical), columnas (dimensión horizontal) y planos (dimensión en profundidad). Por lo tanto, un elemento dado se localiza especificando su plano, fila y columna. Una definición de un array tridimensional equipos es:
-
-```c
-int equipos[3][15][10];
-```
-
-Un ejemplo típico de un array de tres dimensiones es el modelo de un libro, donde cada página del libro es un array bidimensional construido por filas y columnas. Por ejemplo, cada página tiene cuarenta y cinco líneas que forman las filas del array y ochenta caracteres por línea que forman las columnas del array. Si el libro tiene quinientas páginas, existirán quinientos planos y el número de elementos será 500 x 80 x 45 = 1,800,000.
-
-![Figura 8.10. Un array de tres dimensiones (4 x 5 x 3).](imagen_8_10.png)
-
-**8.4.6. Una aplicación práctica**
-
-El array libro tiene tres dimensiones [PAGINAS] [LINEAS] [COLUMNAS], que definen el tamaño del array. El tipo de datos del array es `char`, ya que los elementos son caracteres.
-
-¿Cómo se puede acceder a la información del libro? El método más fácil es mediante bucles anidados. Dado que el libro se compone de un conjunto de páginas, el bucle más externo será el bucle de página, y el bucle de columnas será el bucle más interno. Esto significa que el bucle de filas se insertará entre los bucles de página y columna. El código siguiente permite procesar el array:
-
-```c
-int pagina, linea, columna;
-for (pagina = 0; pagina < PAGINAS; ++pagina)
-    for (linea = 0; linea < LINEAS; ++linea)
-        for (columna = 0; columna < COLUMNAS; ++columna)
-            <procesar Libro[pagina][linea][columna]>
-```
-
-**Ejercicio 8.2**
-
-Comprobar si una matriz de números enteros es simétrica respecto a la diagonal principal. La matriz se genera internamente, con la función `rand()` y el argumento `N(8)` para que la matriz tenga valores de 0 a 7. El tamaño de la matriz se pide como dato de entrada. La función `simetrica()` determina si la matriz es simétrica. La función `main()` genera matrices hasta encontrar una que sea simétrica y la escribe en pantalla.
-
-```c
-/*
-Determina si una matriz es simétrica. La matriz se genera con números 
-aleatorios de 0 a 7. El programa itera hasta encontrar una matriz 
-simétrica.
-*/
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#define N 8
-
-void genmat(int a[][N], int n);
-int simetrica(int a[][N], int n);
-void escribemat(int a[][N], int n);
-
-int main(void) {
-    int a[N][N]; /* define matriz de tamaño máximo N */
-    int n, i, j;
-    int es_sim;
-
-    srand(time(NULL));
-
-    do {
-        printf("\nTamaño de cada dimensión de la matriz, máximo %d: ", N);
-        scanf("%d", &n);
-    } while (n < 2 || n > N);
-
-    do {
-        genmat(a, n);
-        es_sim = simetrica(a, n);
-        if (es_sim) {
-            puts("\nEncontrada matriz simétrica.\n");
-            escribemat(a, n);
-        }
-    } while (!es_sim);
 
     return 0;
 }
+```
 
-void genmat(int a[][N], int n) {
-    int i, j;
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            a[i][j] = rand() % N;
-}
+En este ejemplo, se utiliza un contador para asignar valores consecutivos a cada elemento de la matriz.
 
-int simetrica(int a[][N], int n) {
-    int i, j;
-    int es_simetrica = 1;
+### Lectura de Elementos:
 
-    for (i = 0; i < n - 1 && es_simetrica; i++) {
-        for (j = i + 1; j < n && es_simetrica; j++) {
-            if (a[i][j] != a[j][i])
-                es_simetrica = 0;
+La lectura de elementos de un array bidimensional también implica el uso de bucles anidados. Aquí hay un ejemplo:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int matriz[3][4];
+
+    // Leer valores en la matriz
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            printf("Ingrese un valor para la posición [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
         }
     }
-    return es_simetrica;
-}
 
-void escribemat(int a[][N], int n) {
-    int i, j;
-    puts("\tMatriz analizada");
-    for (i = 0; i < n; i++) {
-        putchar('\t');
-        puts("\t-- \n");
-        for (j = 0; j < n; j++)
-            printf("%d%c", a[i][j], (j == n - 1 ? '\n' : ' '));
+    // Imprimir la matriz
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
     }
-}
-```
 
-## UTILIZACIÓN DE ARRAYS COMO PARÁMETROS
-
-En C, todos los arrays se pasan por referencia (dirección). Esto significa que cuando se llama a una función y se utiliza un array como parámetro, se debe tener cuidado de no modificar los arrays en una función llamada. C trata automáticamente la llamada a la función como si hubiera situado el operador de dirección `&` delante del nombre del array. La Figura 8.11 ayuda a comprender el mecanismo.
-
-Dadas las declaraciones:
-
-```c
-#define MAX 100
-double datos[MAX];
-```
-
-se puede declarar una función que acepte un array de valores double como parámetro. La función `SumaDeDatos()` puede tener el prototipo:
-
-```c
-double SumaDeDatos(double datos[MAX]);
-```
-
-Incluso mejor, si se dejan los corchetes en blanco y se añade un segundo parámetro que indica el tamaño del array:
-
-```c
-double SumaDeDatos(double datos[], int n);
-```
-
-```c
-int main() {
-    char palabra[4] = "AB(:";
-    cambiar_palabra(palabra);
-    puts(palabra);
     return 0;
 }
 ```
 
-**Figura 8.11. Paso de un array por dirección.**
+En este ejemplo, se utiliza la función `scanf` para leer valores desde la entrada estándar y asignarlos a cada elemento de la matriz.
 
-A la función `SumaDeDatos` se le pueden pasar argumentos de tipo array junto con un entero `n`, que informa a la función sobre cuántos valores contiene el array. Por ejemplo, esta sentencia visualiza la suma de valores de los datos del array:
+Estos ejemplos ilustran cómo puedes utilizar bucles anidados para escribir y leer elementos en un array bidimensional. Puedes adaptar estos conceptos según tus necesidades específicas.
 
-```c
-printf("\nSuma = %lf", SumaDeDatos(datos, MAX));
-```
+## Array en parámetros
 
-La función `SumaDeDatos` no es difícil de escribir. Un simple bucle `for` suma los elementos del array y una sentencia `return` devuelve el resultado de nuevo al llamador:
+En C, los arrays pueden ser utilizados como parámetros en funciones de varias formas. A continuación, se proporciona una explicación detallada sobre la utilización de arrays como parámetros, incluyendo los diferentes enfoques y consideraciones clave.
 
-```c
-double SumaDeDatos(double datos[], int n) {
-    double suma = 0;
-    while (n > 0)
-        suma += datos[--n];
-    return suma;
-}
-```
+### Paso de Arrays como Parámetros:
 
-El código que se utiliza para pasar un array a una función incluye el tipo de elemento del array y su nombre. El siguiente ejemplo incluye dos funciones que procesan arrays. En ambas listas de parámetros, el array `a[]` se declara en la lista de parámetros tal como:
+1. **Paso por Referencia:**
+   - En C, los arrays se pasan a funciones por referencia, lo que significa que la función recibe una referencia a la memoria donde se almacena el array. La función puede modificar directamente los valores del array original.
 
-```c
-double a[];
-```
+     ```c
+     void modificarArray(int arr[], int tamano) {
+         for (int i = 0; i < tamano; ++i) {
+             arr[i] *= 2;  // Modificación directa de los elementos del array
+         }
+     }
+     ```
 
-El número real de elementos se pasa mediante una variable entera independiente. Cuando se pasa un array a una función, se pasa realmente sólo la dirección de la celda de memoria donde comienza el array. Este valor se representa por el nombre del array `a[]`. La función puede cambiar entonces el contenido del array accediendo directamente a las celdas de memoria en donde se almacenan los elementos del array. Así, aunque el nombre del array se pasa por valor, sus elementos se pueden cambiar como si se hubieran pasado por referencia.
+     ```c
+     int main() {
+         int datos[] = {1, 2, 3, 4, 5};
+         modificarArray(datos, 5);
+         // En este punto, los elementos de 'datos' han sido modificados
+         return 0;
+     }
+     ```
 
-**Ejemplo 8.5**
+2. **Especificación del Tamaño del Array:**
+   - Al pasar un array como parámetro, es común especificar el tamaño del array como otro parámetro. Esto permite que la función sepa cuántos elementos hay en el array.
 
-Paso de arrays a funciones. En el ejemplo se lee un array y se escribe. El array tiene un tamaño máximo, `L`, aunque el número real de elementos es determinado en la función `leerArray()`. El segundo argumento es, por tanto, un puntero para así poder transmitir por referencia y obtener dicho dato de la función.
+     ```c
+     void imprimirArray(int arr[], int tamano) {
+         for (int i = 0; i < tamano; ++i) {
+             printf("%d ", arr[i]);
+         }
+     }
+     ```
 
-```c
-#include <stdio.h>
-#define L 100
+3. **Uso de Punteros:**
+   - Los arrays se pueden representar como punteros en C. Por lo tanto, en lugar de pasar el array directamente, también puedes pasar un puntero al primer elemento del array.
 
-void leerArray(double a[], int* num);
-void imprimirArray(const double a[], int n);
+     ```c
+     void imprimirArray(int *arr, int tamano) {
+         for (int i = 0; i < tamano; ++i) {
+             printf("%d ", arr[i]);
+         }
+     }
+     ```
 
-int main() {
-    double a[L];
-    int n;
-    leerArray(a, &n);
-    printf("El array a tiene %d elementos, estos son\n", n);
-    imprimirArray(a, n);
-    return 0;
-}
+     ```c
+     int main() {
+         int datos[] = {1, 2, 3, 4, 5};
+         imprimirArray(datos, 5);
+         return 0;
+     }
+     ```
 
-void leerArray(double a[], int* num) {
-    int n = 0;
-    puts("Introduzca datos. Para terminar pulsar 0.\n");
-    for (; n < L; n++) {
-        printf("%d: ", n);
-        scanf("%lf", &a[n]);
-        if (a[n] == 0) break;
-    }
-    *num = n;
-}
+### Consideraciones Importantes:
 
-void imprimirArray(const double a[], int n) {
-    int i = 0;
-    for (; i < n; i++)
-        printf("\t%d: %lf\n", i, a[i]);
-}
-```
+1. **Sin Información sobre el Tamaño:**
+   - C no proporciona una forma intrínseca de obtener el tamaño de un array dentro de una función. Por lo tanto, debes pasar el tamaño como un parámetro adicional o utilizar un valor especial para indicar el final del array (por ejemplo, un carácter nulo para arrays de caracteres).
 
-**Ejercicio 8.2**
+2. **Efectos de Cambio Permanente:**
+   - Al pasar un array a una función y modificarlo, los cambios son permanentes y afectan al array original. Esto se debe a que se está trabajando con la referencia a la misma memoria.
 
-Escribir una función que calcule el máximo de los primeros `n` elementos de un array especificado.
+3. **Punteros Constantes:**
+   - Puedes utilizar `const` para indicar que la función no modificará el contenido del array.
 
-```c
-double maximo(const double a[], int n) {
-    double mx;
-    int i;
-    mx = a[0];
-    for (i = 1; i < n; i++)
-        mx = (a[i] > mx ? a[i] : mx);
-    return mx;
-}
-```
+     ```c
+     void imprimirArray(const int *arr, int tamano) {
+         // No se pueden modificar los elementos de 'arr' aquí
+         for (int i = 0; i < tamano; ++i) {
+             printf("%d ", arr[i]);
+         }
+     }
+     ```
 
-**8.5.1. Precauciones**
+4. **Arrays Multidimensionales:**
+   - Para pasar arrays multidimensionales, se deben especificar las dimensiones adicionales.
 
-Cuando se utiliza una variable array como argumento, la función receptora puede no conocer cuántos elementos existen en el array. Sin su conocimiento, una función no puede utilizar el array. Aunque la variable array puede apuntar al comienzo de él, no proporciona ninguna indicación de dónde termina el array.
+     ```c
+     void imprimirMatriz(int matriz[][3], int filas) {
+         for (int i = 0; i < filas; ++i) {
+             for (int j = 0; j < 3; ++j) {
+                 printf("%d ", matriz[i][j]);
+             }
+             printf("\n");
+         }
+     }
+     ```
 
-La función `SumaDeEnteros()` suma los valores de todos los elementos de un array y devuelve el total.
-
-```c
-int main() {
-    int lista[] = {10, 11, 12, 13, 14};
-    SumaDeEnteros(lista);
-    return 0;
-}
-```
-
-Aunque `SumaDeEnteros()` conoce dónde comienza el array, no conoce cuántos elementos hay en el array; en consecuencia, no sabe cuántos elementos hay que sumar.
-
-Se pueden utilizar dos métodos alternativos para permitir que una función conozca el número de argumentos asociados con un array que se pasa como argumento de una función:
-
-1. Situar un valor de señal al final del array, que indique a la función que se ha de detener el proceso en ese momento.
-2. Un segundo argumento que indica el número de elementos del array.
-
-Todas las cadenas utilizan el primer método ya que terminan en nulo. Una segunda alternativa es pasar el número de elementos del array siempre que se pasa el array como un argumento. El array y el número de elementos se convierten entonces en una pareja de argumentos que se asocian con la función llamada. La función `SumaDeEnteros()`, por ejemplo, se puede actualizar así:
-
-```c
-int SumaDeEnteros(int ArrayEnteros[], int NoElementos) {
-    // cuerpo de la función SumaDeEnteros
-}
-```
-
-El segundo argumento, `NoElementos`, es un valor entero que indica a la función `SumaDeEnteros()` cuántos elementos se procesarán en el array `ArrayEnteros`. Este método suele ser el utilizado para arrays de elementos que no son caracteres.
-
-**Ejemplo 8.6**
-
-Este programa introduce una lista de 10 números enteros y calcula su suma y el valor máximo.
-
-```c
-#include
-
- <stdio.h>
-
-int SumaDeEnteros(const int ArrayEnteros[], int NoElementos);
-int maximo(const int ArrayEnteros[], int NoElementos);
-
-int main() {
-    int items[10];
-    int Total, i;
-    puts("Introduzca 10 números, seguidos por return");
-    for (i = 0; i < 10; i++)
-        scanf("%d", &items[i]);
-    printf("Total = %d\n", SumaDeEnteros(items, 10));
-    printf("Valor máximo: %d\n", maximo(items, 10));
-    return 0;
-}
-
-int SumaDeEnteros(const int ArrayEnteros[], int NoElementos) {
-    int i, Total = 0;
-    for (i = 0; i < NoElementos; i++)
-        Total += ArrayEnteros[i];
-    return Total;
-}
-
-int maximo(const int ArrayEnteros[], int NoElementos) {
-    int mx;
-    int i;
-    mx = ArrayEnteros[0];
-    for (i = 1; i < NoElementos; i++)
-        mx = (ArrayEnteros[i] > mx ? ArrayEnteros[i] : mx);
-    return mx;
-}
-```
-
-El siguiente programa muestra cómo se pasa un array de enteros a una función de ordenación:
+### Ejemplo Práctico:
 
 ```c
 #include <stdio.h>
 
-void ordenar(int lista[], int numElementos); /* prototipo de ordenar */
-
-int main() {
-    int ListaEnt[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 10};
-    int i;
-    int LongLista = sizeof(ListaEnt) / sizeof(int);
-    ordenar(ListaEnt, LongLista);
-    for (i = 0; i < LongLista; i++)
-        printf("%d ", ListaEnt[i]);
-    return 0;
-}
-
-void ordenar(int lista[], int numElementos) {
-    /* cuerpo de la función para ordenar el array */
-}
-```
-
-Como C trata las cadenas como arrays de caracteres, las reglas para pasar arrays como argumentos a funciones se aplican también a cadenas. El siguiente ejemplo de una función de cadena `conviertemayus()` que convierte los caracteres de sus argumentos a mayúsculas, muestra el paso de parámetros tipo cadena.
-
-```c
-void conviertemayus(char cad[]) {
-    int i = 0;
-    int intervalo = 'a' - 'A';
-    while (cad[i]) {
-        cad[i] = (cad[i] >= 'a' && cad[i] <= 'z') ? cad[i] - intervalo : cad[i];
-        i++;
+void modificarArray(int arr[], int tamano) {
+    for (int i = 0; i < tamano; ++i) {
+        arr[i] *= 2;
     }
 }
-```
 
-La función `conviertemayus()` recibe una cadena, un array de caracteres cuyo último carácter es el nulo (`'\0'`). El bucle termina cuando se alcance el fin de cadena (nulo, condición `false`). La condición del operador ternario determina si el carácter es minúscula, en cuyo caso resta a dicho carácter el intervalo que hay entre las minúsculas y las mayúsculas.
+void imprimirArray(const int arr[], int tamano) {
+    for (int i = 0; i < tamano; ++i) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 
-### **Paso de cadenas como parámetros**
+int main() {
+    int datos[] = {1, 2, 3, 4, 5};
 
-La técnica de pasar arrays como parámetros se utiliza para pasar cadenas de caracteres a funciones. Las cadenas terminadas en nulo utilizan el primer método dado anteriormente para controlar el tamaño de un array. Las cadenas son arrays de caracteres. Cuando una cadena se pasa a una función, tal como `str1en()` (véase el capítulo de tratamiento de cadenas), la función conoce que se ha almacenado el final del array cuando ve un valor de 0 en un elemento del array.
+    printf("Array original: ");
+    imprimirArray(datos, 5);
 
-Las cadenas utilizan siempre un 0 para indicar que es el último elemento del array de caracteres. Este 0 es el carácter nulo del código de caracteres ASCII.
+    modificarArray(datos, 5);
 
-Considérese estas declaraciones de una constante y una función que acepta un parámetro cadena y un valor de su longitud.
+    printf("Array modificado: ");
+    imprimirArray(datos, 5);
 
-```c
-#define MAXLON 128
-void FuncDemo(char s[], int long);
-```
-
-El parámetro `s` es un array de caracteres de longitud no especificada. El parámetro `long` indica a la función cuántos bytes ocupa (que puede ser diferente del número de caracteres almacenados en `s`).
-
-Dadas las declaraciones siguientes:
-
-```c
-char presidente[MAXLON] = "Manuel Martinez";
-FuncDemo(presidente, MAXLON);
-```
-
-la primera línea declara e inicializa un array de caracteres llamado `presidente`, capaz de almacenar hasta `MAXLON-1` caracteres más un byte de terminación, carácter nulo. La segunda línea pasa la cadena a la función.
-
-## ORDENACIÓN DE LISTAS
-
-La ordenación de arrays es otra de las tareas usuales en la mayoría de los programas. La ordenación o clasificación es el procedimiento mediante el cual se disponen los elementos del array en un orden especificado, tal como orden alfabético u orden numérico.
-
-Un diccionario es un ejemplo de una lista ordenada alfabéticamente, y una agenda telefónica o lista de cuentas de un banco es un ejemplo de una lista ordenada numéricamente. El orden de clasificación u ordenación puede ser ascendente o descendente.
-
-Existen numerosos algoritmos de ordenación de arrays: inserción, burbuja, selección, rápido (quick sort), fusión (merge), montículo (heap), shell, etc.
-
-**8.6.1. Algoritmo de la burbuja**
-
-La ordenación por burbuja es uno de los métodos más fáciles de ordenación. El método (algoritmo) de ordenación es muy simple. Se compara cada elemento del array con el siguiente (por parejas), si no están en el orden correcto, se intercambian entre sí sus valores. El valor más pequeño flota hasta la parte superior del array como si fuera una burbuja en un vaso de refresco con gas.
-
-La Figura 8.13 muestra una lista de números, antes, durante las sucesivas comparaciones y a la terminación del algoritmo de la burbuja. Se van realizando diferentes pasadas hasta que la lista se encuentra ordenada totalmente en orden ascendente.
-
-```c
-Lista desordenada: 6 4 10 2 8
-Primera pasada
-4 6 6 6
-10 10 2 2
-2 2 10 8
-8 8 8 10
-Segunda pasada
-4 4 6 2 2 6 8 8 10 10
-Tercera pasada
-4 2 2 4 6 6 8 8 10 10
-Cuarta pasada
-2 4 4 6 6 8 8 10 10
-```
-
-La ordenación de arrays requiere siempre un intercambio de valores cuando éstos no se encuentran en el orden previsto. Si, por ejemplo, en la primera pasada 6 y 4 no están ordenados, se han de intercambiar sus valores. Suponiendo que el array se denomina lista:
-
-```c
-lista[0] = 6;
-lista[1] = 4;
-```
-
-Para intercambiar dos valores, se necesita utilizar una tercera variable auxiliar que contenga el resultado inmediato. Así, por ejemplo, si las dos variables son `lista[0]` y `lista[1]`, el siguiente código realiza el intercambio de dos variables:
-
-**Ejemplo 8.7**
-
-La función `intercambio` intercambia los valores de dos variables `x` e `y`. El algoritmo de intercambio utiliza una variable auxiliar.
-
-```c
-float aux;
-aux = x;
-x = y;
-y = aux;
-```
-
-La función `intercambio` sirve para intercambiar dos elementos `x` e `y` que se pasan a ella. Al tener que pasar por referencia, los argumentos de la función son punteros.
-
-```c
-void intercambio(float* x, float* y) {
-    float aux;
-    aux = *x;
-    *x = *y;
-    *y = aux;
+    return 0;
 }
 ```
 
-Una llamada a esta función:
+Este ejemplo demuestra la modificación de un array dentro de una función y su impresión antes y después de la modificación.
+
+## Paso de cadenas como parámetros
+
+En C, las cadenas de caracteres se representan como arrays de caracteres terminados por un carácter nulo (`'\0'`). Al pasar cadenas como parámetros a funciones, es fundamental entender cómo funcionan estos arrays de caracteres y cómo se manejan en el contexto de funciones. Aquí tienes una explicación detallada del paso de cadenas como parámetros en C:
+
+### Representación de Cadenas en C:
+
+Las cadenas de caracteres en C se representan como arrays de caracteres. Cada carácter individual en la cadena ocupa una posición en el array, y la cadena se termina con el carácter nulo (`'\0'`). El carácter nulo indica el final de la cadena y es esencial para las funciones que manipulan cadenas.
+
+Ejemplo de cadena en C:
 
 ```c
-float r, v;
-intercambio(&r, &v);
+char miCadena[] = "Hola";
 ```
 
-**Ejemplo 8.8**
+### Paso de Cadenas a Funciones:
 
-El programa siguiente ordena una lista de números reales y a continuación los imprime.
+Cuando pasas una cadena como parámetro a una función, estás pasando la dirección de memoria del primer carácter en el array. Es decir, estás pasando un puntero al primer elemento de la cadena.
+
+```c
+void imprimirCadena(char *cadena) {
+    printf("%s\n", cadena);
+}
+```
+
+### Especificación del Tamaño de la Cadena:
+
+Es común especificar el tamaño de la cadena como un parámetro adicional para que la función sepa la longitud de la cadena. Esto puede ser útil si la función necesita recorrer la cadena o manipularla de alguna manera.
+
+```c
+void imprimirCadenaConLongitud(char *cadena, int longitud) {
+    for (int i = 0; i < longitud; ++i) {
+        printf("%c", cadena[i]);
+    }
+    printf("\n");
+}
+```
+
+### Uso de `const` con Cadenas:
+
+Puedes usar la palabra clave `const` para indicar que la función no modificará la cadena. Esto es útil para funciones que solo leen la cadena sin realizar modificaciones.
+
+```c
+void imprimirCadenaConst(const char *cadena) {
+    printf("%s\n", cadena);
+}
+```
+
+### Ejemplo Práctico:
 
 ```c
 #include <stdio.h>
 
-/* prototipos */
-void imprimir(float a[], int n);
-void intercambio(float* x, float* y);
-void ordenar(float a[], int n);
+// Función que imprime una cadena sin conocer su longitud
+void imprimirCadena(char *cadena) {
+    printf("Cadena: %s\n", cadena);
+}
+
+// Función que imprime una cadena conocida su longitud
+void imprimirCadenaConLongitud(char *cadena, int longitud) {
+    printf("Cadena con longitud: ");
+    for (int i = 0; i < longitud; ++i) {
+        printf("%c", cadena[i]);
+    }
+    printf("\n");
+}
 
 int main() {
-    float a[10] = {25.5, 34.1, 27.6, 15.2, 4.3, 5.14, 6.21, 7.57, 4.61, 5.41};
-    imprimir(a, 10);
-    ordenar(a, 10);
-    imprimir(a, 10);
+    char mensaje[] = "Hola, Mundo";
+
+    imprimirCadena(mensaje);
+
+    // Determinar la longitud de la cadena usando sizeof
+    int longitud = sizeof(mensaje) / sizeof(mensaje[0]) - 1;
+
+    imprimirCadenaConLongitud(mensaje, longitud);
+
     return 0;
-}
-
-void imprimir(float a[], int n) {
-    int i = 0;
-    for (; i < n - 1; i++) {
-        printf("%f \n", a[n - 1]);
-        printf("%f,%c", a[i], ((i + 1) % 10 == 0 ? '\n' : ' '));
-    }
-}
-
-void intercambio(float* x, float* y) {
-    float aux;
-    aux = *x;
-    *x = *y;
-    *y = aux;
-}
-
-/* ordenar burbuja */
-void ordenar(float a[], int n) {
-    int i, j;
-    for (i = n - 1; i > 0; i--)
-        for (j = 0; j < i; j++)
-            if (a[j] > a[j + 1])
-                intercambio(&a[j], &a[j + 1]);
 }
 ```
 
-## BÚSQUEDA EN LISTAS
+Este ejemplo ilustra cómo pasar y trabajar con cadenas como parámetros en funciones. La función `imprimirCadena` demuestra cómo imprimir una cadena sin conocer su longitud, mientras que la función `imprimirCadenaConLongitud` muestra cómo trabajar con una cadena conocida su longitud.
+
+## Algoritmo de la burbuja
+
+La ordenación de burbuja es un algoritmo simple de ordenación que compara repetidamente pares de elementos adyacentes y los intercambia si están en el orden incorrecto. Este proceso continúa hasta que no se requieren más intercambios, lo que indica que la lista está ordenada.
+
+**Concepto:**
+1. Se compara el primer elemento con el segundo.
+2. Si el primer elemento es mayor que el segundo, se intercambian.
+3. Se pasa al siguiente par de elementos adyacentes y se repite el proceso.
+4. Este proceso se repite para cada par de elementos en la lista, avanzando a través de la lista varias veces hasta que no se necesiten más intercambios.
+
+**Ejemplo de Vida Real:**
+
+Imagina que tienes un estante con libros desordenados. Para organizarlos, decides utilizar el método de ordenación de burbuja. Comienzas desde la izquierda del estante y comparas cada par de libros adyacentes. Si el libro de la izquierda es más grande (por ejemplo, tiene más páginas) que el de la derecha, los intercambias. Luego, te mueves al siguiente par de libros y repites el proceso. Haces esto varias veces, pasando por todos los libros en el estante. Cada vez que realizas una pasada completa, el libro más grande "burbujea" hacia la derecha hasta su posición correcta. Repites este proceso hasta que todos los libros estén ordenados en el estante.
+
+En este ejemplo, la acción de comparar y reorganizar los libros es similar a la comparación y el intercambio de elementos en el algoritmo de ordenación de burbuja. La repetición del proceso simboliza las múltiples pasadas a través de la lista que realiza el algoritmo hasta que no se necesitan más intercambios, es decir, hasta que la lista esté ordenada.
+
+Claro, desglosemos el código paso a paso:
+
+```c
+#include <stdio.h>
+
+// Función para intercambiar dos elementos
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+```
+
+Esta parte del código define una función llamada `swap` que toma dos punteros a enteros y realiza un intercambio de valores entre las ubicaciones de memoria a las que apuntan.
+
+```c
+// Función de ordenación de burbuja
+void ordenarBurbuja(int libros[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = 0; j < n - i - 1; ++j) {
+            // Comparar libros adyacentes y intercambiar si están en el orden incorrecto
+            if (libros[j] > libros[j + 1]) {
+                swap(&libros[j], &libros[j + 1]);
+            }
+        }
+    }
+}
+```
+
+La función `ordenarBurbuja` implementa el algoritmo de ordenación de burbuja. Utiliza dos bucles anidados para comparar y, si es necesario, intercambiar elementos adyacentes en el arreglo `libros`. La función `swap` se llama para realizar el intercambio.
+
+```c
+// Función para imprimir la lista de libros
+void imprimirLibros(int libros[], int n) {
+    printf("Lista de libros ordenados:\n");
+    for (int i = 0; i < n; ++i) {
+        printf("%d ", libros[i]);
+    }
+    printf("\n");
+}
+```
+
+La función `imprimirLibros` simplemente imprime en la consola la lista ordenada de libros.
+
+```c
+int main() {
+    // Ejemplo de libros desordenados
+    int estante[] = {5, 2, 8, 1, 4};
+
+    // Obtener el número de libros en el estante
+    int numLibros = sizeof(estante) / sizeof(estante[0]);
+
+    // Aplicar el método de ordenación de burbuja
+    ordenarBurbuja(estante, numLibros);
+
+    // Imprimir la lista ordenada de libros
+    imprimirLibros(estante, numLibros);
+
+    return 0;
+}
+```
+
+En la función `main`, se crea un arreglo llamado `estante` que representa la lista de libros desordenados. Se obtiene el número de libros en el estante (`numLibros`) dividiendo el tamaño del arreglo entre el tamaño de un elemento del arreglo.
+
+Luego, se llama a `ordenarBurbuja` para ordenar el arreglo `estante` utilizando el método de ordenación de burbuja.
+
+Finalmente, se llama a `imprimirLibros` para mostrar en la consola la lista ordenada de libros. El programa termina con `return 0;`.
+
+En resumen, el código organiza una lista de libros en un estante utilizando el algoritmo de ordenación de burbuja y luego imprime la lista ordenada. La función `swap` facilita el intercambio de elementos, mientras que las funciones `ordenarBurbuja` e `imprimirLibros` se encargan de la ordenación y visualización, respectivamente.
+
+~~~c
+#include <stdio.h>
+
+// Función para intercambiar dos elementos
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Función de ordenación de burbuja
+void ordenarBurbuja(int libros[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = 0; j < n - i - 1; ++j) {
+            // Comparar libros adyacentes y intercambiar si están en el orden incorrecto
+            if (libros[j] > libros[j + 1]) {
+                swap(&libros[j], &libros[j + 1]);
+            }
+        }
+    }
+}
+
+// Función para imprimir la lista de libros
+void imprimirLibros(int libros[], int n) {
+    printf("Lista de libros ordenados:\n");
+    for (int i = 0; i < n; ++i) {
+        printf("%d ", libros[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    // Ejemplo de libros desordenados
+    int estante[] = {5, 2, 8, 1, 4};
+
+    // Obtener el número de libros en el estante
+    int numLibros = sizeof(estante) / sizeof(estante[0]);
+
+    // Aplicar el método de ordenación de burbuja
+    ordenarBurbuja(estante, numLibros);
+
+    // Imprimir la lista ordenada de libros
+    imprimirLibros(estante, numLibros);
+
+    return 0;
+}
+~~~
+
+## Búsqueda de listas
 
 Los arrays (listas y tablas) son uno de los medios principales por los cuales se almacenan los datos en programas C. Debido a esta razón, existen operaciones fundamentales cuyo tratamiento es imprescindible conocer. Estas operaciones esenciales son: la búsqueda de elementos y la ordenación o clasificación de las listas.
 
@@ -1033,257 +1049,198 @@ La búsqueda de un elemento dado en un array (lista o tabla) es una aplicación 
 
 **8.7.1. Búsqueda secuencial**
 
-Este algoritmo busca el elemento dado, recorriendo secuencialmente el array desde un elemento al siguiente, comenzando en la primera posición del array y se detiene cuando se encuentra el elemento buscado o bien se alcanza el final del array.
+La búsqueda secuencial es un método simple y directo para encontrar un elemento específico en un array. Aquí hay una explicación detallada de cómo se realiza la búsqueda secuencial y un ejemplo sin código:
 
-Por lo tanto, el algoritmo debe comprobar primero el elemento almacenado en la primera posición del array, luego el segundo elemento y así sucesivamente, hasta que se encuentra el elemento buscado o se termina el recorrido del array. Esta tarea repetitiva se realizará con bucles, en nuestro caso con el bucle `while`.
+### Búsqueda Secuencial:
 
-**Algoritmo BusquedaSec**
+1. **Inicio:**
+   - La búsqueda comienza desde el primer elemento del array.
 
-Se utiliza una variable lógica, en C tipo `int`, denominada `Encontrado`, que indica si el elemento se encontró en la búsqueda. La variable `Encontrado` se inicializa a falso (0) y se activa a verdadero (1) cuando se encuentra el elemento. Se utiliza un operador `and` (en C `&&`), que permite evaluar las dos condiciones de terminación de la búsqueda: elemento encontrado o no haya más elementos (índice del array excede al último valor válido del mismo).
+2. **Comparación:**
+   - Se compara el elemento actual con el elemento buscado.
 
-Cuando el bucle se termina, el elemento o bien se ha encontrado o bien no se ha encontrado. Si el elemento se ha encontrado, el valor de `Encontrado` será verdadero y el valor del índice será la posición del array (índice del elemento encontrado). Si el elemento no se ha encontrado, el valor de `Encontrado` será falso y se devuelve el valor -1 al programa llamador.
+3. **Coincidencia:**
+   - Si el elemento actual coincide con el elemento buscado, se ha encontrado el elemento y la búsqueda se detiene.
+
+4. **No Coincidencia:**
+   - Si no hay coincidencia, se pasa al siguiente elemento en el array.
+
+5. **Fin o Elemento Encontrado:**
+   - Este proceso se repite hasta que se encuentra el elemento buscado o se llega al final del array.
+
+### Ejemplo de Búsqueda Secuencial (sin código):
+
+Imagina que tienes una lista de nombres en un array y deseas encontrar la posición de un nombre específico en la lista utilizando la búsqueda secuencial.
+
+1. **Inicio:**
+   - Comienzas desde el primer nombre en la lista.
+
+2. **Comparación:**
+   - Comparas el primer nombre con el nombre que estás buscando.
+
+3. **Coincidencia:**
+   - Si el primer nombre coincide con el nombre buscado, has encontrado el nombre y obtienes su posición en el array.
+
+4. **No Coincidencia:**
+   - Si no hay coincidencia, te mueves al siguiente nombre en la lista.
+
+5. **Repetición:**
+   - Repites este proceso hasta que encuentras el nombre buscado o llegas al final de la lista.
+
+Este método de búsqueda es efectivo, pero puede ser ineficiente en grandes conjuntos de datos, ya que requiere examinar cada elemento uno por uno hasta encontrar una coincidencia.
+
+Por ejemplo, si estás buscando el nombre "Juan" en una lista de nombres, la búsqueda secuencial revisaría cada nombre en orden hasta encontrar "Juan" o llegar al final de la lista.
+
+Vamos a desglosar el código paso a paso:
 
 ```c
-int BusquedaSec(int Lista[MAX], int Elemento) {
-    int Encontrado = FALSE;
-    int i = 0;
+#include <stdio.h>
+#include <string.h>
+```
 
-    /* Búsqueda en la lista hasta que se encuentra el elemento 
-       o se alcanza el final de la lista. */
-    while ((!Encontrado) && (i <= MAX-1)) {
-        /* Si se encuentra el elemento, se devuelve la posición en la lista. */
-        Encontrado = ((Lista[i] == Elemento) ? TRUE : i++);
+En esta parte, se incluyen las librerías necesarias, en este caso, `<stdio.h>` para funciones de entrada y salida estándar y `<string.h>` para operaciones con cadenas de caracteres.
+
+```c
+// Función de búsqueda secuencial
+int busquedaSecuencial(char *nombres[], int numNombres, char *nombreBuscado) {
+    for (int i = 0; i < numNombres; ++i) {
+        if (strcmp(nombres[i], nombreBuscado) == 0) {
+            // Coincidencia encontrada, devuelve la posición
+            return i;
+        }
     }
 
-    if (Encontrado) {
-        return i;
-    } else {
-        return -1;
-    }
+    // Si no se encuentra el nombre, devuelve -1
+    return -1;
 }
 ```
 
-En el bucle `while` se ha utilizado el operador condicional `? :` para asignar `TRUE` si se encuentra el elemento o bien incrementar el índice `i`.
-
-**Ejemplo 8.9**
-
-El siguiente programa busca todas las ocurrencias de un elemento y la posición que ocupa en una matriz. La posición viene dada por fila y columna; la matriz se genera con números aleatorios de 0 a 49.
-
-La función de búsqueda devuelve 0 si no encuentra el elemento, 1 si lo encuentra. Tiene el argumento de la matriz y dos parámetros para devolver la fila y columna, por lo que tendrán que ser de tipo puntero para poder devolver dicha información. La búsqueda se hará a partir de la fila y columna de la última coincidencia.
+En esta sección, se define la función `busquedaSecuencial`, que toma un array de nombres, el número de nombres en el array y el nombre que se está buscando. Utiliza un bucle `for` para recorrer cada nombre en el array y compara cada nombre con el nombre buscado utilizando `strcmp` (una función que compara dos cadenas de caracteres). Si se encuentra una coincidencia, la función devuelve la posición del nombre en el array. Si no se encuentra, devuelve -1.
 
 ```c
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-
-void escribemat(int a[I][C]);
-void genmat(int a[I][C]);
-int buscar(int a[I][C], int* fila, int* col, int elemento);
-
 int main() {
-    int a[I][C];
-    int item, nf, nc, esta;
-    int veces = 0;
+    // Array de nombres
+    char *listaNombres[] = {"Juan", "María", "Carlos", "Ana", "Pedro"};
 
-    randomize();
-    genmat(a);
-    printf("\nElemento a buscar: ");
-    scanf("%d", &item);
+    // Número de nombres en el array
+    int numNombres = sizeof(listaNombres) / sizeof(listaNombres[0]);
 
-    do {
-        esta = buscar(a, &nf, &nc, item);
-        if (esta) {
-            veces = veces + 1;
-            printf("\nCoincidencia %d: Fila %d, Columna %d\n", veces, nf, nc);
-        }
-    } while (esta);
+    // Nombre a buscar
+    char nombreBuscado[] = "Ana";
 
-    escribemat(a);
-    printf("\nNúmero de coincidencias del elemento %d: %d", item, veces);
+    // Realizar búsqueda secuencial
+    int posicion = busquedaSecuencial(listaNombres, numNombres, nombreBuscado);
+
+    // Verificar el resultado
+    if (posicion != -1) {
+        printf("El nombre '%s' se encontró en la posición %d.\n", nombreBuscado, posicion);
+    } else {
+        printf("El nombre '%s' no se encontró en la lista.\n", nombreBuscado);
+    }
+
     return 0;
 }
-
-/* Búsqueda lineal en toda la matriz */
-int buscar(int a[I][C], int* fila, int* col, int elemento) {
-    static int x = 0, y = -1;
-    int i, j, encontrado;
-
-    /* Avanza al siguiente elemento (fila, columna) */
-    if (y == C-1) { /* última columna */
-        y = 0;
-        x = x + 1;
-    } else {
-        y = y + 1;
-    }
-
-    encontrado = 0;
-
-    while (!encontrado && (x < I)) {
-        encontrado = (a[x][y] == elemento);
-        /* Avanza al siguiente elemento */
-        if (!encontrado) {
-            if (y == C-1) {
-                y = 0;
-                x = x + 1;
-            } else {
-                y = y + 1;
-            }
-        }
-    }
-
-    /* Último valor de x e y */
-    *fila = x;
-    *col = y;
-
-    return encontrado;
-}
-
-void genmat(int a[I][C]) {
-    int i, j;
-    for (i = 0; i < I; i++) {
-        for (j = 0; j < C; j++) {
-            a[i][j] = random(N);
-        }
-    }
-}
-
-void escribemat(int a[I][C]) {
-    int i, j;
-    puts("\t\tMatriz analizada");
-    puts("\t\t--\n");
-    for (i = 0; i < I; i++) {
-        putchar('\t');
-        puts("\t\t--\n");
-        for (j = 0; j < C; j++) {
-            printf("%d%c", a[i][j], (j == C-1 ? '\n' : ' '));
-        }
-    }
-}
 ```
 
----
+En la función `main`, se define un array de nombres (`listaNombres`), se calcula el número de nombres en el array (`numNombres`), y se especifica el nombre que se quiere buscar (`nombreBuscado`). Luego, se llama a la función `busquedaSecuencial` para realizar la búsqueda y se almacena el resultado en la variable `posicion`. Finalmente, se imprime un mensaje en función del resultado: si `posicion` es diferente de -1, se imprime la posición donde se encontró el nombre; de lo contrario, se indica que el nombre no se encontró en la lista.
 
-**Ejemplo 8.10**
-
-En este programa se quiere buscar la fila de una matriz real que tiene la máxima suma de sus elementos en valor absoluto. La matriz se genera con números aleatorios, las dimensiones de la matriz se establecen con una constante predefinida.
-
-Para determinar la suma de una fila se define
-
- la función `sumar()`, se le pasa la dirección del primer elemento de la fila para tratar cada fila como un array unidimensional. Para generar números aleatorios de tipo real, se divide el número que devuelve la función `rand()` entre 100.0.
-
-```c
-#include <stdlib.h>
+~~~c
 #include <stdio.h>
-#include <time.h>
+#include <string.h>
 
-#define F 6
-#define C 10
-#define V 100.0
+// Función de búsqueda secuencial
+int busquedaSecuencial(char *nombres[], int numNombres, char *nombreBuscado) {
+    for (int i = 0; i < numNombres; ++i) {
+        if (strcmp(nombres[i], nombreBuscado) == 0) {
+            // Coincidencia encontrada, devuelve la posición
+            return i;
+        }
+    }
 
-void escribemat(float mt[I][C]);
-void genmat(float mt[I][C]);
-float sumar(float v[I]);
-int maximo(float mt[I][C]);
+    // Si no se encuentra el nombre, devuelve -1
+    return -1;
+}
 
 int main() {
-    float mat[F][C];
-    int fila;
+    // Array de nombres
+    char *listaNombres[] = {"Juan", "María", "Carlos", "Ana", "Pedro"};
 
-    randomize();
-    genmat(mat);
-    escribemat(mat);
+    // Número de nombres en el array
+    int numNombres = sizeof(listaNombres) / sizeof(listaNombres[0]);
 
-    fila = maximo(mat);
-    printf("\n\nFila cuya suma de elementos es mayor: %d", fila);
+    // Nombre a buscar
+    char nombreBuscado[] = "Ana";
+
+    // Realizar búsqueda secuencial
+    int posicion = busquedaSecuencial(listaNombres, numNombres, nombreBuscado);
+
+    // Verificar el resultado
+    if (posicion != -1) {
+        printf("El nombre '%s' se encontró en la posición %d.\n", nombreBuscado, posicion);
+    } else {
+        printf("El nombre '%s' no se encontró en la lista.\n", nombreBuscado);
+    }
+
     return 0;
 }
+~~~
 
-/* Busqueda lineal en toda la matriz */
-int buscar(int a[I][C], int* fila, int* col, int elemento) {
-    static int x = 0, y = -1;
-    int i, j, encontrado;
+### Algoritmo BusquedaSec
 
-    /* Avanza al siguiente elemento (fila, columna) */
-    if (y == C-1) { /* última columna */
-        y = 0;
-        x = x + 1;
-    } else {
-        y = y + 1;
-    }
+Vamos a analizar el código paso a paso:
 
-    encontrado = 0;
+```c
+#include <stdio.h>
+```
 
-    while (!encontrado && (x < I)) {
-        encontrado = (a[x][y] == elemento);
-        /* Avanza al siguiente elemento */
-        if (!encontrado) {
-            if (y == C-1) {
-                y = 0;
-                x = x + 1;
-            } else {
-                y = y + 1;
-            }
+Aquí se incluye la librería estándar de entrada y salida (`<stdio.h>`) necesaria para utilizar funciones como `printf`.
+
+```c
+// Función de búsqueda secuencial para enteros
+int busquedaSecuencial(int numeros[], int numElementos, int numeroBuscado) {
+    for (int i = 0; i < numElementos; ++i) {
+        if (numeros[i] == numeroBuscado) {
+            // Número encontrado, devuelve la posición
+            return i;
         }
     }
 
-    /* Último valor de x e y */
-    *fila = x;
-    *col = y;
-
-    return encontrado;
-}
-
-void genmat(float mat[I][C]) {
-    int i, j;
-    for (i = 0; i < F; i++) {
-        for (j = 0; j < C; j++) {
-            mat[i][j] = rand() / V;
-        }
-    }
-}
-
-void escribemat(float mat[I][C]) {
-    int i, j;
-    puts("\t\tMatriz analizada");
-    puts("\t\t--\n");
-    for (i = 0; i < F; i++) {
-        putchar('\t');
-        puts("\t\t--\n");
-        for (j = 0; j < C; j++) {
-            printf("%.2f%c", mat[i][j], (j == C-1 ? '\n' : ' '));
-        }
-    }
-}
-
-float sumar(float v[I]) {
-    int i;
-    float s;
-
-    for (s = 0.0, i = 0; i < I; i++) {
-        s += v[i];
-    }
-
-    return s;
-}
-
-int maximo(float mt[I][C]) {
-    float mx;
-    int i, f;
-
-    mx = sumar(&mt[0][0]); /* dirección de primera fila */
-    printf("\nSuma fila %d %.2f", 0, mx);
-
-    for (f = 0, i = 1; i < F; i++) {
-        float t;
-        t = sumar(&mt[i][0]);
-        printf("\nSuma fila %d %.2f", i, t);
-
-        if (t > mx) {
-            mx = t;
-            f = i;
-        }
-    }
-
-    return f;
+    // Si no se encuentra el número, devuelve -1
+    return -1;
 }
 ```
+
+Se define una función llamada `busquedaSecuencial` que toma tres argumentos: un array de enteros (`numeros`), el número de elementos en el array (`numElementos`), y el número que se está buscando (`numeroBuscado`). La función utiliza un bucle `for` para recorrer el array y compara cada elemento con el número buscado. Si encuentra una coincidencia, devuelve la posición del número en el array. Si no encuentra el número, devuelve -1.
+
+```c
+int main() {
+    // Array de números
+    int listaNumeros[] = {10, 5, 8, 20, 15};
+
+    // Número de elementos en el array
+    int numElementos = sizeof(listaNumeros) / sizeof(listaNumeros[0]);
+
+    // Número a buscar
+    int numeroBuscado = 20;
+
+    // Realizar búsqueda secuencial
+    int posicion = busquedaSecuencial(listaNumeros, numElementos, numeroBuscado);
+
+    // Verificar el resultado
+    if (posicion != -1) {
+        printf("El número %d se encontró en la posición %d.\n", numeroBuscado, posicion);
+    } else {
+        printf("El número %d no se encontró en la lista.\n", numeroBuscado);
+    }
+
+    return 0;
+}
+```
+
+En la función `main`, se crea un array de números (`listaNumeros`). Luego, se calcula el número de elementos en el array (`numElementos`) dividiendo el tamaño del array por el tamaño de un elemento del array.
+
+Se especifica el número que se desea buscar (`numeroBuscado`). A continuación, se llama a la función `busquedaSecuencial` para realizar la búsqueda y se almacena el resultado en la variable `posicion`.
+
+Finalmente, se verifica el resultado: si `posicion` es diferente de -1, se imprime un mensaje indicando la posición donde se encontró el número. Si `posicion` es -1, se imprime un mensaje indicando que el número no se encontró en la lista.
+
+Este programa busca el número `20` en el array de enteros y muestra la posición si se encuentra, o indica que el número no está en la lista.
