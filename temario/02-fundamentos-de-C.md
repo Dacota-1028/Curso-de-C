@@ -12,40 +12,67 @@
 ## Introducción
 
 ## Comentarios
+<<<<<<< HEAD
 
 El texto proporcionado está mayormente correcto, pero hay un pequeño error en la descripción de la sintaxis de los comentarios de una línea. La secuencia para comenzar un comentario de una línea en C es `//` (barra inclinada doble), no `//` (barra invertida). Aquí está la corrección:
 
 En el lenguaje de programación C, los comentarios se utilizan para proporcionar información adicional dentro del código fuente. Los comentarios no afectan la ejecución del programa y son ignorados por el compilador. Sirven para documentar el código, hacer anotaciones, explicar la lógica detrás de ciertas secciones o para cualquier otro propósito de documentación.
+=======
+AL momento de escribir código, vamos a tener bloques de líneas de código complejo de entenderlo y para poder explicarlo y sea más facil de comprender o para poner una cita en el archivo fuente aclarando sobre algo. El lenguaje de programación nos da la facilidad de comentar el código sin poder afectar en si el código fuente. 
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
-Aquí hay algunas características clave sobre los comentarios en el lenguaje de programación C:
+Vamos a aclarar un poco más sobre los comentarios, su utilidad y su importancia.
 
-### 1. Sintaxis:
+Los comentarios son utilizados para proporcionar información adicional dentro del código fuente. Sirven para documentar el código, hacer anotaciones, explicar la lógica detrás de ciertos bloques de código o para cualquier otro propósito de documentación.
 
+<<<<<<< HEAD
 - **Comentarios de una línea:** Se crean utilizando la secuencia `//` (barra inclinada doble). Todo lo que sigue después de `//` en esa línea se trata como un comentario.
+=======
+Ya mensionado sobre que son los comentarios, para que sirven y su importanci. Ahora vamos ha ver de que formas se pueden comentar en el lenguaje de programación C.
+
+El lenguaje de programación C nos facilata con dos formas de comentar un archivo de C.
+
+La primera forma de comentar son:
+
+- **Comentarios de una línea:** Se crean utilizando la secuencia de `doble barra invertida`  `//`. Todo lo que sigue después de los siguientes caracteres de (doble barra invertida)`//` en esa línea se trata como un comentario.
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
   ```c
   // Esto es un comentario de una línea
   int x = 5; // Esto también es un comentario
   ```
+Y la segunda forma de comentar seria los:
+- **Comentarios de múltiples líneas o comentarios acotados:** Se crean entre barra invertida y asterisco `/*` y para finaliar, es con asterisco y barra invertida`*/`. Todo lo que está dentro de estos delimitadores se trata como un comentario y podemos añadir varias línes de comentarios, tambien si pones más un asterisco en medio de la inicialización barra invetida asterisco y asterisco barra invertida (finalización del comentario) y presionamos enter despues asterisco de en el medio del cual acabamos de crear y nueva mente otro enter automaticamente se crear el siguiente asterisco y se podra ver mejor los comentarios de multiple líne o acotado.
 
-- **Comentarios de múltiples líneas:** Se crean entre `/*` y `*/`. Todo lo que está dentro de estos delimitadores se trata como un comentario.
+Los comentarios de multiples líneas no pueden anidarse, no pueden ir un comentario acotado dentro de otro comentario acotado o múltiple línea.
 
   ```c
   /* Esto es un comentario de
   múltiples líneas */
   ```
 
-### 2. Propósitos de los Comentarios:
+  También podemos desactivar el código que seria comentar temporalmente una sección de código para excluirlo de la ejecución sin eliminarlo. Esto es útil durante el desarrollo y las pruevas.
 
-- **Documentación del Código:** Explicar la funcionalidad de una sección de código para que otros programadores (o incluso el mismo en el futuro) puedan entenderlo fácilmente.
+En el momento de la compilación, el compilador de C va a detectar los caracteres de doble barra invertida de comentarios en línea y doble barra invertida asterisco y la finalización de asterisco barra invertida que son los comentarios múltiples, tanto la línea(comentarios en línea) y el bloque (comentarios múltiples) van a ser ignorados al detectar los caracteres. Y por eso los comentarios no afectan en la ejecución del programa y son ignorados por el compilador. 
 
-- **Desactivar Código:** Comentar temporalmente una sección de código para excluirlo de la ejecución sin eliminarlo. Esto es útil durante el desarrollo y las pruebas.
+Y para poder finalizar con los comentarios y que al momento de escribir el código no olvides documentar el código que es la explicación de la funcionalidad de una sección de código para que otros programdores (o tu mismo en el futuro) puedan entenderlo con facilidad.
 
+<<<<<<< HEAD
 Los comentarios en C son una herramienta esencial para el desarrollo de software, facilitando la comprensión y el mantenimiento del código a lo largo del tiempo.
 
 ## Tipos de datos
 
 En programación, un "tipo de dato" es una clasificación que especifica qué tipo de valores puede tomar una variable y qué operaciones se pueden realizar con esos valores. Los tipos de datos son esenciales para la declaración y manipulación de variables en un programa.
+=======
+Y en resumen los comentarios ficilitan la comprensión y mantenimiento del código a lo largo del tiempo.
+
+## Tipos de datos
+
+Ahora vamos ha hablar sobre los tipos de datos, que es el pilar del lenguaje de programación, los tipos de datos son la estructura del lenguaje de programación.
+
+
+En programación, un "tipo de dato" es una clasificación que especifica qué tipo de valores puede tomar una variable aun no mensionamos sobre las variables por ahora vamos ha hablar solo sobre los tipos de datos y qué operaciones se pueden realizar con esos valores. Los tipos de datos son esenciales para la declaración y manipulación de variables en un programa.
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
 Los tipos de datos son fundamentales para cualquier programador, ya que definen el tipo de valores que pueden ser almacenados y manipulados en un programa. En C, existen varios tipos de datos, y vamos a explorar los más comunes.
 
@@ -55,6 +82,7 @@ Empecemos por los tipos de datos primitivos. Estos son los bloques de construcci
 
 - **Enteros (integers):** Representan números enteros decimales, como -5, 0, 42.
 
+<<<<<<< HEAD
   | Tipo       | Tamaño de byte (64 bits) |
   |------------|---------------------------|
   | short      | 2 bytes                   |
@@ -63,9 +91,15 @@ Empecemos por los tipos de datos primitivos. Estos son los bloques de construcci
   | long long  | 8 bytes                   |
 
   Estos tipos representan números enteros de diferentes tamaños. El short puede almacenar números pequeños, mientras que long long es perfecto para gigantescos valores.
+=======
+Un tipo de dato tiene un conjunto de valores y las operaciones que se pueden realizar con esos valores. 
+
+- **Enteros(integers):** Estos tipos representan números enteros de diferentes tamaños.
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
 - **Punto flotante (floating-point):** Si necesitas trabajar con números decimales, entonces el tipo de dato punto flotante (float o double) es tu elección.
 
+<<<<<<< HEAD
   | Tipo        | Tamaño de byte (64 bits) |
   |-------------|---------------------------|
   | float       | 4 bytes                   |
@@ -73,6 +107,11 @@ Empecemos por los tipos de datos primitivos. Estos son los bloques de construcci
   | long double | 16 bytes                  |
 
 - **Caracteres (characters):** Ahora, hablemos del tipo de dato caracter (char). Este tipo se utiliza para almacenar un solo carácter.
+=======
+El short puede almacenar números pequeños, el int el el tipo estándar en el lenguaje de programación C mientras que long y  long long es perfecto para gigantescos valores.
+
+- **Punto flotante(floating-point):** Y los de punto flotante son para números decimales, entonces el tipo de dato punto flotante (float, double, long double) es tu elección. Por ejemplo:
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
   | Tipo | Tamaño de byte (64 bits) |
   |------|---------------------------|
@@ -84,7 +123,11 @@ Empecemos por los tipos de datos primitivos. Estos son los bloques de construcci
   |------|---------------------------|
   | char | 1 byte x carácter         |
 
+<<<<<<< HEAD
 - **Booleanos:** Representan valores de verdad o falsedad (true o false). C interpreta todo valor distinto de 0 como `Verdadero` y el valor 0 como `falso`.
+=======
+- **Booleanos:** Representan valores de verdad o falsedad (true o false). C interpreta todo valor 1 o distinto de 0 como `Verdadero` y el valor 0 como `falso`. De esta forma se pueden escribir expresiones lógica de igual forma que en otros lenguajes de programación. Una expresión lógica que se evalúa a `0` se considera falsa; una expresión lógica que se evalúa a 1 (O valor entero distinto de 0) se considera verdadera. Esto veremos más a mas detalle
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
   | Tipo     | Valor |
   |----------|-------|
@@ -191,7 +234,19 @@ Este programa utiliza las macros proporcionadas por `limits.h` y `float.h` para 
 
 ## Variables
 
+<<<<<<< HEAD
 En programación, una variable es un espacio de almacenamiento con un nombre simbólico (un identificador) y un tipo de dato asociado. Puedes pensar en una variable como una caja etiquetada donde puedes almacenar información y luego referenciarla por su nombre.
+=======
+Ya mensionamos sobre los tipos de datos que son valores que podemos manipular para realizar operaciones pero para poder realizar operaciones necesitamos lamacenar los valor de los tipos de datos por ejemplo:
+
+
+| tipo entero (numero entero)    |      Operador suma      |       tipo entero (número entero) |       suma     |
+|--------------------------------|-------------------------|-----------------------------------|----------------|
+|          4                     |          +              |                  8                |      12        |
+
+Para poder almacenar los valores de tipo entero para poder manipular y realizar operaciones como la suma 
+En programación, una variable es un espacio de almacenamiento con un nombre simbólico (un identificador) y un tipo de dato asociado. Puede pensar en una variable como una caja etiquetada donde puedes alamacenar información y luego referenciarla por su nombre.
+>>>>>>> 040670463e8cffcc25a335f8a9c3ba553cd3342d
 
 ### Sintaxis
 
