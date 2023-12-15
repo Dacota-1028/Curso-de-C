@@ -6,11 +6,14 @@
 3. [Do-while](#Do-while)
 4. [For](#For)
 5. [Bucles anidados](#Bucles-anidados)
+5. [Sangria en control de flujo](#Sangria-en-control-de-flujo)
 6. [Break](#Break)
 7. [Continue](#Continue)
 8. [Resumen](#Resumen)
 
 ## Introducción
+
+¡Bienvenido al curso de Estructuras de Control en C! En este fascinante viaje de programación, exploraremos cómo dirigir el flujo de ejecución en C. Desde el versátil `while` hasta el persistente `do-while`, el eficiente `for` y bucles anidados que dan forma a algoritmos complejos. Aprenderemos sobre la importancia de la sangría en la legibilidad del código y cómo las declaraciones `break` y `continue` pueden modificar el comportamiento del bucle. ¡Sumérgete en el fascinante mundo de las estructuras de control en C y descubre cómo transformar tus ideas en ejecuciones precisas y controladas!
 
 ## While
 
@@ -160,77 +163,71 @@ En este ejemplo:
 
 Este bucle es eficiente cuando se conoce el número exacto de iteraciones y permite expresar de manera concisa el proceso de iteración. La estructura `for` es comúnmente utilizada en situaciones donde se tiene un control preciso sobre el número de repeticiones necesarias.
 
-## Sangria en control de flujo y estructura de control
+## Sangria en control de flujo
 
-En C, las condiciones en las instrucciones `if`, `else`, `for`, y `while` suelen ir seguidas de una única declaración sin el uso de llaves `{}` si la declaración es única. Aunque es posible no utilizar llaves cuando la declaración es única, es una buena práctica siempre usarlas para evitar ambigüedades y posibles errores de lectura. Sin embargo, aquí tienes ejemplos sin llaves y con sangría para ilustrar cómo se vería y una breve explicación:
+El uso sin llaves (`{}`) se refiere a escribir una sola instrucción en el cuerpo de una estructura de control de flujo (`if`, `else`, `else-if`, `while`, `for`, `do-while`). Aquí hay ejemplos de cómo se puede utilizar en una sola instrucción y en qué casos es aplicable:
 
-### Uso de la Sangría en `if`:
+### Uso sin llaves en una sola instrucción:
 
-```c
-#include <stdio.h>
+1. **if:**
+   ```c
+   if (condicion)
+       printf("Una sola instrucción en if\n");
+   ```
 
-int main() {
-    int x = 10;
+2. **if-else:**
+   ```c
+   if (condicion)
+       printf("Una sola instrucción en if\n");
+   else
+       printf("Una sola instrucción en else\n");
+   ```
 
-    // Uso de if sin llaves y con sangría
-    if (x > 5)
-        printf("x es mayor que 5\n");
+3. **if-else-if:**
+   ```c
+   if (condicion1)
+       printf("Instrucción para condición 1\n");
+   else if (condicion2)
+       printf("Instrucción para condición 2\n");
+   ```
 
-    return 0;
-}
-```
+4. **while:**
+   ```c
+   while (condicion)
+       printf("Una sola instrucción en while\n");
+   ```
 
-### Uso de la Sangría en `else`:
+5. **for:**
+   ```c
+   for (int i = 0; i < 5; ++i)
+       printf("Una sola instrucción en for\n");
+   ```
 
-```c
-#include <stdio.h>
+6. **do-while:**
+   ```c
+   do
+       printf("Una sola instrucción en do-while\n");
+   while (condicion);
+   ```
 
-int main() {
-    int x = 3;
+### Uso en una sola instrucción:
 
-    // Uso de else sin llaves y con sangría
-    if (x > 5)
-        printf("x es mayor que 5\n");
-    else
-        printf("x no es mayor que 5\n");
+1. **do-while:**
+   ```c
+   do printf("Una sola instrucción en do-while\n"); while (condicion);
+   ```
 
-    return 0;
-}
-```
+2. **for:**
+   ```c
+   for (int i = 0; i < 5; ++i) printf("Una sola instrucción en for\n");
+   ```
 
-### Uso de la Sangría en `for`:
+3. **while:**
+   ```c
+   while (condicion) printf("Una sola instrucción en while\n");
+   ```
 
-```c
-#include <stdio.h>
-
-int main() {
-    // Uso de for sin llaves y con sangría
-    for (int i = 0; i < 5; i++)
-        printf("%d ", i);
-
-    printf("\n");
-
-    return 0;
-}
-```
-
-### Uso de la Sangría en `while`:
-
-```c
-#include <stdio.h>
-
-int main() {
-    int i = 0;
-
-    // Uso de while sin llaves y con sangría
-    while (i < 5)
-        printf("%d ", i++);
-
-    printf("\n");
-
-    return 0;
-}
-```
+Es importante tener en cuenta que el uso sin llaves está permitido solo cuando hay una instrucción. Si necesitas ejecutar más de una instrucción, entonces se deben utilizar llaves para delimitar el bloque de código. El uso sin llaves puede ser propenso a errores si no se maneja cuidadosamente.
 
 En estos ejemplos, la sangría se utiliza para indicar la relación de la instrucción con la estructura de control de flujo. Sin embargo, ten en cuenta que esta práctica puede llevar a errores sutiles si no se maneja cuidadosamente, especialmente cuando se agregan más líneas de código. Es altamente recomendable utilizar llaves `{}` para delimitar bloques de código, incluso si solo contienen una única instrucción, para evitar posibles problemas de lectura y mantenimiento del código.
 
@@ -461,3 +458,5 @@ En este ejemplo, el bucle `for` se utiliza para imprimir solo los números impar
 El uso de `continue` permite un control más preciso del flujo dentro de bucles, omitiendo secciones específicas de código en función de condiciones particulares. Es importante usar `continue` con cuidado para evitar la creación de lógica de código confusa o difícil de entender.
 
 ## Resumen
+
+En esta fascinante sección sobre estructuras de control en C, exploramos diversas herramientas para dirigir el flujo de ejecución. Desde los versátiles bucles como el "while", "do-while" y "for", hasta la elegante lógica de los bucles anidados. Descubrimos cómo la sangría en el control de flujo mejora la legibilidad del código, facilitando la comprensión. Celebramos tus logros al entender conceptos clave como "break" y "continue", permitiéndote dominar el arte de dirigir el programa según tus necesidades. ¡Felicitaciones por completar esta sección! Has construido una base sólida para el control de flujo en C. ¡Bien hecho!

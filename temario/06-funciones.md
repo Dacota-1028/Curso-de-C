@@ -1,27 +1,21 @@
 # Funciones
 
 1. [Introducción](#Introducción)
-2. [Concepto de una función](#Concepto-de-una-función)
-3. [Estructura de una función](#Estructura-de-una-función)
-4. [Llamar a una función](#Llamar-a-una-función)
-5. [Reglas para el Nombre de una Función en C](#Reglas-para-el-Nombre-de-una-Función-en-C)
-6. [Retorno de una función](#Retorno-de-una-función)
-7. [Parámetros de una función](#Parámetros-de-una-función)
-8. [Prototipos de una función](#Prototipos-de-una-función)
-9. [Parámetros const en una función](#Parámetros-const-en-una-función)
-10. [Funciones en línea](#Funciones-en-línea)
-11. [Parametros indefinidos](#Parametros-indefinidos)
-12. [Parámetros indefinidos en funciones en línea](#Parámetros-indefinidos-en-funciones-en-línea)
-13. [Variables locales y globales](#Variables-locales-y-globales)
-14. [Almacenamiento de Variables](#Almacenamiento-de-Variables)
-15. [Recursividad](#Recursividad)
-16. [Conclución](#Conclución)
+2. [Concepto](#Concepto)
+3. [Estructura](#Estructura)
+4. [Parámetros de una función](#Parámetros-de-una-función)
+5. [Funciones en línea](#Funciones-en-línea)
+6. [Parametros indefinidos](#Parametros-indefinidos)
+7. [Parámetros indefinidos en funciones en línea](#Parámetros-indefinidos-en-funciones-en-línea)
+8. [Variables en funciones](#Variables-en-funciones)
+9. [Recursividad](#Recursividad)
+10. [Conclución](#Conclución)
 
 ## Introducción
 
 ---
 
-## Concepto de una función
+### Concepto
 
 En programación, una función es un bloque de código que realiza una tarea específica o lleva a cabo una operación bien definida. Las funciones permiten organizar y modularizar el código, ya que encapsulan una funcionalidad particular, haciéndola más fácil de entender, mantener y reutilizar.
 
@@ -56,7 +50,7 @@ Imaginemos un sistema de gestión de una biblioteca con diversas operaciones, co
 
 Cada función se centra en una tarea específica y puede ser llamada cuando sea necesario en el programa principal de gestión de biblioteca. Este enfoque modular facilita el entendimiento del código y permite una gestión más efectiva de las operaciones relacionadas con los libros en la biblioteca.
 
-## Estructura de una función
+## Estructura
 
 La estructura de una función en programación, específicamente en el contexto del lenguaje C, consta de varios elementos que definen su comportamiento y cómo interactúa con el resto del programa. Aquí está una explicación detallada de la estructura de una función:
 
@@ -148,7 +142,8 @@ En este ejemplo:
 
 En resumen, la estructura de una función en C sigue un formato específico, que incluye el tipo de dato de retorno, el nombre de la función, los parámetros, el cuerpo de la función y la palabra clave `return`. Estos elementos combinados forman una unidad modular y reutilizable dentro de un programa.
 
-## Llamar a una función
+### Llamar a una función
+
 Llamar a funciones con argumentos es una parte fundamental de la programación en C. Cuando llamas a una función, le pasas valores específicos llamados argumentos, que la función puede utilizar para llevar a cabo sus operaciones. Aquí hay una explicación detallada sobre cómo llamar a funciones con argumentos en C:
 
 Al llamar a una función, proporcionas valores concretos para los parámetros que la función espera. Los valores que proporcionas se denominan argumentos.
@@ -204,53 +199,16 @@ int main() {
   - El número de argumentos debe coincidir con el número de parámetros definidos en la función.
 
 - **Tipos de Datos:**
-  - Los tipos de datos de los argumentos deben coincidir con los tipos de datos de los parámetros, o deben ser convertibles implícitamente.
+  - Los tipos de datos
+
+ de los argumentos deben coincidir con los tipos de datos de los parámetros, o deben ser convertibles implícitamente.
 
 - **Paso por Valor:**
   - En C, los argumentos se pasan a las funciones por valor, lo que significa que la función opera con copias de los valores proporcionados. Esto asegura que los valores originales en la función de llamada no se vean afectados por las operaciones de la función.
 
 En resumen, al llamar a una función con argumentos en C, proporcionas valores concretos que la función utiliza para llevar a cabo sus operaciones. Es crucial que los argumentos se proporcionen en el orden correcto y que coincidan en tipo y número con los parámetros definidos en la función.
 
-## Reglas para el Nombre de una Función en C
-
-Al nombrar una función en C, debes seguir ciertas reglas para garantizar la consistencia y legibilidad del código:
-
-1. **Comienzo con una Letra o Guion Bajo:**
-   - El nombre de la función debe comenzar con una letra o un guion bajo `_`.
-
-2. **Composición con Letras, Dígitos y Guiones Bajos:**
-   - Puedes usar letras, dígitos y guiones bajos en el nombre de la función.
-
-3. **Evitar Palabras Clave del Lenguaje C:**
-   - No debes utilizar palabras clave reservadas del lenguaje C como nombres de funciones.
-
-4. **Único en el Ámbito:**
-   - El nombre de la función debe ser único en el ámbito en el que se define. No puedes tener dos funciones con el mismo nombre en el mismo ámbito.
-
-5. **Descriptivo y Convincente:**
-   - Elige un nombre descriptivo que indique claramente la funcionalidad de la función. Un nombre convincente facilita la comprensión del propósito de la función.
-
-### Ejemplo:
-
-```c
-// Declaración de una función que suma dos enteros
-int sumar(int num1, int num2) {
-    int resultado;
-    resultado = num1 + num2;
-    return resultado;
-}
-```
-
-En este ejemplo:
-- El tipo de dato de retorno es `int`.
-- El nombre de la función es `sumar`.
-- La función toma dos parámetros, `num1` y `num2`.
-- El cuerpo de la función realiza la suma.
-- La palabra clave `return` devuelve el resultado al lugar desde donde se llamó la función.
-
-Siguiendo estas reglas, se crea una función con un nombre significativo y que se adhiere a las convenciones de nombrado en C.
-
-## Retorno de una función
+### Retorno de una función
 
 En programación, el tipo de retorno de una función en C indica el tipo de dato que la función devolverá al finalizar su ejecución. Puede ser cualquier tipo de dato válido en C, como `int`, `float`, `char`, punteros, estructuras o incluso un tipo definido por el usuario.
 
@@ -258,17 +216,6 @@ En programación, el tipo de retorno de una función en C indica el tipo de dato
 ### Función con Tipo de Retorno `void`:
 
 La palabra clave `void` se utiliza como tipo de retorno para indicar que la función no devuelve ningún valor. En otras palabras, una función con tipo de retorno `void` realiza una tarea sin producir un resultado que deba ser utilizado por el código que la llamó.
-
-#### Sintaxis Básica:
-```c
-void nombre_de_la_funcion(tipo_parametro1 parametro1, tipo_parametro2 parametro2, ...) {
-    // Cuerpo de la función
-    // ...
-    // No hay instrucción de retorno en este caso
-}
-```
-
-### Explicación Detallada:
 
 #### 1. Tipo de Retorno Distinto de `void`:
 - **Ejemplo:**
@@ -293,29 +240,6 @@ void nombre_de_la_funcion(tipo_parametro1 parametro1, tipo_parametro2 parametro2
 - **Explicación:**
   - La función `saludar` tiene un tipo de retorno `void`, indicando que no devuelve ningún valor.
   - No hay una instrucción `return` en este caso, ya que la función no produce un resultado que se deba devolver.
-
-### Uso Común de Funciones con Tipo de Retorno `void`:
-
-1. **Impresión en Pantalla:**
-   ```c
-   void imprimirMensaje(char mensaje[]) {
-       printf("%s\n", mensaje);
-   }
-   ```
-
-2. **Operaciones de Modificación de Estado:**
-   ```c
-   void incrementarEnUno(int *numero) {
-       (*numero)++;
-   }
-   ```
-
-3. **Acciones Específicas:**
-   ```c
-   void iniciarSistema() {
-       // Inicialización del sistema
-   }
-   ```
 
 ### Consideraciones Finales:
 
@@ -432,7 +356,7 @@ int main() {
 
 Este ejemplo ilustra la diferencia entre modificar una variable dentro de una función mediante parámetros por valor y por referencia. La función `modificaPorValor` no afecta a la variable original, mientras que `modificaPorReferencia` lo hace, ya que trabaja con la dirección de memoria de la variable original.
 
-## Prototipos de una función
+### Prototipos de una función
 
 Un prototipo de función en C es una declaración previa de una función antes de que aparezca su definición completa. Proporciona información al compilador sobre la firma de la función, incluyendo el tipo de retorno, el nombre de la función y los tipos de parámetros que espera. La declaración del prototipo permite al compilador verificar la validez de las llamadas a la función antes de encontrar su definición.
 
@@ -500,7 +424,7 @@ Si no creas un prototipo para una función antes de usarla, el compilador puede 
 
 En resumen, los prototipos de funciones en C son declaraciones previas que proporcionan al compilador información sobre la interfaz de una función antes de que aparezca su definición completa. Crear prototipos facilita la detección de errores y asegura que las llamadas a funciones se realicen correctamente. No crear un prototipo puede resultar en advertencias y errores relacionados con llamadas a funciones incorrectas o falta de información sobre la función.
 
-## Parámetros const en una función
+### Parámetros const en una función
 
 En C, los parámetros constantes son aquellos que se declaran con la palabra clave `const` antes del tipo de dato en la lista de parámetros de una función. Estos parámetros están diseñados para indicar que la función no modificará el valor de esos parámetros durante su ejecución. Utilizar parámetros constantes puede mejorar la claridad del código y ayudar a prevenir cambios accidentales.
 
@@ -909,7 +833,7 @@ int main() {
 En resumen, las macros con parámetros indefinidos en C proporcionan una forma flexible de definir funciones de manera más general, pero deben usarse con precaución para evitar problemas de seguridad de tipos y mantener la claridad del código.
 
 
-## Variables locales y globales
+## Variables en funciones
 
 ### Variables Globales en C:
 
@@ -995,7 +919,7 @@ En este ejemplo, `variableLocal` se declara dentro de la función `miFuncion`. E
 
 - El uso de variables globales debe considerarse cuidadosamente, ya que su visibilidad y accesibilidad desde cualquier parte del programa pueden llevar a efectos secundarios no deseados y dificultar el mantenimiento del código.
 
-## Almacenamiento de Variables
+### Almacenamiento de Variables
 
 El almacenamiento de variables en C se refiere a cómo se asigna y se gestiona la memoria para las variables. Las palabras clave `auto`, `extern`, `register`, `static` y `typedef` están relacionadas con el almacenamiento de variables. Aquí tienes información detallada sobre cada una de ellas, con ejemplos de código y explicaciones.
 
@@ -1422,483 +1346,3 @@ En este ejemplo, la función `factorial` se llama a sí misma con un argumento r
 
 La recursividad es una técnica poderosa pero debe usarse con cuidado. Se presta especialmente bien a problemas que pueden dividirse en subproblemas más pequeños y resolverse de manera recursiva. Entender la estructura de la llamada recursiva y definir casos base adecuados son aspectos clave para aprovechar esta técnica de manera efectiva.
 
-## Funciones de carácter
-
-Las funciones relacionadas con caracteres en la biblioteca `ctype.h` en C proporcionan utilidades para realizar pruebas y conversiones en caracteres. Aquí tienes una explicación detallada y ejemplos de código para las funciones que mencionaste:
-
-### Funciones de Comprobación Alfabética y de Dígitos:
-
-1. **`isalpha(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es una letra alfabética (mayúscula o minúscula).
-   - **Ejemplo:**
-     ```c
-     if (isalpha('A')) {
-         printf("Es una letra alfabética.\n");
-     }
-     ```
-
-2. **`islower(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es una letra minúscula.
-   - **Ejemplo:**
-     ```c
-     if (islower('a')) {
-         printf("Es una letra minúscula.\n");
-     }
-     ```
-
-3. **`isupper(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es una letra mayúscula.
-   - **Ejemplo:**
-     ```c
-     if (isupper('B')) {
-         printf("Es una letra mayúscula.\n");
-     }
-     ```
-
-4. **`isdigit(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es un dígito decimal.
-   - **Ejemplo:**
-     ```c
-     if (isdigit('7')) {
-         printf("Es un dígito decimal.\n");
-     }
-     ```
-
-5. **`isxdigit(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es un dígito hexadecimal.
-   - **Ejemplo:**
-     ```c
-     if (isxdigit('A')) {
-         printf("Es un dígito hexadecimal.\n");
-     }
-     ```
-
-6. **`isalnum(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es una letra alfabética o un dígito decimal.
-   - **Ejemplo:**
-     ```c
-     if (isalnum('3')) {
-         printf("Es una letra alfabética o un dígito decimal.\n");
-     }
-     ```
-
-### Funciones de Prueba de Caracteres Especiales:
-
-7. **`iscntrl(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es un carácter de control (no imprimible).
-   - **Ejemplo:**
-     ```c
-     if (iscntrl('\t')) {
-         printf("Es un carácter de control.\n");
-     }
-     ```
-
-8. **`isgraph(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter tiene representación gráfica (imprimible y no espacio en blanco).
-   - **Ejemplo:**
-     ```c
-     if (isgraph('A')) {
-         printf("Es un carácter gráfico.\n");
-     }
-     ```
-
-9. **`isprint(c)`**
-   - **Descripción:** Devuelve un valor diferente de cero si el carácter es imprimible (incluidos los espacios en blanco).
-   - **Ejemplo:**
-     ```c
-     if (isprint(' ')) {
-         printf("Es un carácter imprimible.\n");
-     }
-     ```
-
-10. **`ispunct(c)`**
-    - **Descripción:** Devuelve un valor diferente de cero si el carácter es un carácter de puntuación.
-    - **Ejemplo:**
-      ```c
-      if (ispunct(',')) {
-          printf("Es un carácter de puntuación.\n");
-      }
-      ```
-
-11. **`isspace(c)`**
-    - **Descripción:** Devuelve un valor diferente de cero si el carácter es un espacio en blanco.
-    - **Ejemplo:**
-      ```c
-      if (isspace('\n')) {
-          printf("Es un espacio en blanco.\n");
-      }
-      ```
-
-### Funciones de Conversión de Caracteres:
-
-12. **`tolower(c)`**
-    - **Descripción:** Convierte un carácter a minúscula si es una letra alfabética; de lo contrario, devuelve el mismo carácter.
-    - **Ejemplo:**
-      ```c
-      char mayuscula = 'C';
-      char minuscula = tolower(mayuscula);
-      printf("Conversión a minúscula: %c\n", minuscula);
-      ```
-
-13. **`toupper(c)`**
-    - **Descripción:** Convierte un carácter a mayúscula si es una letra alfabética; de lo contrario, devuelve el mismo carácter.
-    - **Ejemplo:**
-      ```c
-      char minuscula = 'g';
-      char mayuscula = toupper(minuscula);
-      printf("Conversión a mayúscula: %c\n", mayuscula);
-      ```
-
-Estas funciones de la biblioteca `ctype.h` son útiles para realizar operaciones específicas en caracteres, como verificar si son letras, dígitos, caracteres de control, etc., y también para realizar conversiones entre mayúsculas y minúsculas.
-
-## Funciones numéricas
-
-Aquí tienes una explicación detallada de algunas funciones numéricas de las bibliotecas `math.h` y `stdlib.h` en C, junto con ejemplos de código para cada función:
-
-### Funciones Matemáticas (`math.h`):
-
-1. **`ceil(x)`**
-   - **Descripción:** Devuelve el entero más pequeño que es mayor o igual a `x`.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 5.3;
-         double result = ceil(x);
-         printf("ceil(%f) = %.2f\n", x, result);
-         return 0;
-     }
-     ```
-
-2. **`fabs(x)`**
-   - **Descripción:** Devuelve el valor absoluto de `x`.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = -7.5;
-         double result = fabs(x);
-         printf("fabs(%f) = %.2f\n", x, result);
-         return 0;
-     }
-     ```
-
-3. **`floor(x)`**
-   - **Descripción:** Devuelve el entero más grande que es menor o igual a `x`.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 9.8;
-         double result = floor(x);
-         printf("floor(%f) = %.2f\n", x, result);
-         return 0;
-     }
-     ```
-
-4. **`fmod(x, y)`**
-   - **Descripción:** Devuelve el resto de la división de `x` entre `y`.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 10.5, y = 3.2;
-         double result = fmod(x, y);
-         printf("fmod(%f, %f) = %.2f\n", x, y, result);
-         return 0;
-     }
-     ```
-
-5. **`pow(x, y)`**
-   - **Descripción:** Devuelve `x` elevado a la potencia `y`.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 2.0, y = 3.0;
-         double result = pow(x, y);
-         printf("pow(%f, %f) = %.2f\n", x, y, result);
-         return 0;
-     }
-     ```
-
-6. **`powl(x)`**
-   - **Descripción:** Devuelve `x` elevado a la potencia 10.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 2.5;
-         double result = powl(x, 10);
-         printf("powl(%f, 10) = %.2f\n", x, result);
-         return 0;
-     }
-     ```
-
-7. **`sqrt(x)`**
-   - **Descripción:** Devuelve la raíz cuadrada de `x`.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 16.0;
-         double result = sqrt(x);
-         printf("sqrt(%f) = %.2f\n", x, result);
-         return 0;
-     }
-     ```
-
-### Funciones Trigonométricas (`math.h`):
-
-8. **`acos(x)`**
-   - **Descripción:** Devuelve el arco coseno de `x` en radianes.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 0.5;
-         double result = acos(x);
-         printf("acos(%f) = %.2f radians\n", x, result);
-         return 0;
-     }
-     ```
-
-9. **`asin(x)`**
-   - **Descripción:** Devuelve el arco seno de `x` en radianes.
-   - **Ejemplo:**
-     ```c
-     #include <math.h>
-     #include <stdio.h>
-
-     int main() {
-         double x = 0.7;
-         double result = asin(x);
-         printf("asin(%f) = %.2f radians\n", x, result);
-         return 0;
-     }
-     ```
-
-10. **`atan(x)`**
-    - **Descripción:** Devuelve el arco tangente de `x` en radianes.
-    - **Ejemplo:**
-      ```c
-      #include <math.h>
-      #include <stdio.h>
-
-      int main() {
-          double x = 1.0;
-          double result = atan(x);
-          printf("atan(%f) = %.2f radians\n", x, result);
-          return 0;
-      }
-      ```
-
-11. **`atan2(x, y)`**
-    - **Descripción:** Devuelve el arco tangente de `y/x` en radianes, utilizando la información de los signos de `x` e `y` para determinar el cuadrante del resultado.
-    - **Ejemplo:**
-      ```c
-      #include <math.h>
-      #include <stdio.h>
-
-      int main() {
-          double x = 2.0, y = 1.0;
-          double result = atan2(y, x);
-          printf("atan2(%f, %f) = %.2f radians\n", y, x, result);
-          return 0;
-      }
-      ```
-
-12. **`cos(x)`**
-    - **Descripción:** Devuelve el coseno de `x` (en radianes).
-    - **Ejemplo:**
-      ```c
-      #include <math.h>
-      #include <stdio.h>
-
-      int main() {
-          double x = 1.5;
-          double result = cos(x);
-          printf("cos(%f) = %.2f\n", x, result);
-
-
-## Funciones alatorias
-
-En el lenguaje de programación C, la biblioteca `stdlib.h` proporciona funciones para la generación de números aleatorios. Aquí te presento una explicación detallada de algunas de estas funciones y cómo funcionan:
-
-### `rand()` - Generador de Números Aleatorios Pseudoaleatorios
-
-- **Descripción:** La función `rand()` genera un número entero pseudoaleatorio en el rango de 0 a `RAND_MAX`. `RAND_MAX` es una constante definida en `stdlib.h` que representa el valor máximo que puede devolver `rand()`.
-
-- **Uso:**
-  ```c
-  #include <stdlib.h>
-  #include <stdio.h>
-  #include <time.h>
-
-  int main() {
-      srand(time(NULL)); // Inicializa el generador de números aleatorios con una semilla única
-      int numero_aleatorio = rand();
-      printf("Número aleatorio: %d\n", numero_aleatorio);
-      return 0;
-  }
-  ```
-
-### `srand(seed)` - Inicialización del Generador de Números Aleatorios
-
-- **Descripción:** La función `srand(seed)` se utiliza para inicializar el generador de números aleatorios con una semilla (`seed`). Si la semilla es la misma, el generador producirá la misma secuencia de números pseudoaleatorios. Para obtener secuencias diferentes, se suele usar el tiempo actual como semilla.
-
-- **Uso:**
-  ```c
-  #include <stdlib.h>
-  #include <stdio.h>
-  #include <time.h>
-
-  int main() {
-      unsigned int semilla = (unsigned int)time(NULL);
-      srand(semilla); // Inicializa el generador de números aleatorios con la hora actual
-      int numero_aleatorio = rand();
-      printf("Número aleatorio: %d\n", numero_aleatorio);
-      return 0;
-  }
-  ```
-
-### `random()` - Generador de Números Aleatorios en Sistemas BSD
-
-- **Descripción:** La función `random()` es específica de sistemas BSD y genera un número entero pseudoaleatorio en un rango más amplio que `rand()`. Al igual que `rand()`, se utiliza en conjunto con `srandom(seed)` para inicializar el generador con una semilla.
-
-- **Uso:**
-  ```c
-  #include <stdlib.h>
-  #include <stdio.h>
-  #include <time.h>
-
-  int main() {
-      srandom(time(NULL)); // Inicializa el generador de números aleatorios con la hora actual
-      long numero_aleatorio = random();
-      printf("Número aleatorio: %ld\n", numero_aleatorio);
-      return 0;
-  }
-  ```
-
-### `randomize()` - Inicialización Rápida del Generador de Números Aleatorios
-
-- **Descripción:** La función `randomize()` es específica de Turbo C y se utiliza para inicializar rápidamente el generador de números aleatorios sin necesidad de proporcionar una semilla explícita. Similar a `srand(time(NULL))`.
-
-- **Uso:**
-  ```c
-  #include <stdlib.h>
-  #include <stdio.h>
-
-  int main() {
-      randomize(); // Inicializa el generador de números aleatorios con la hora actual
-      int numero_aleatorio = rand();
-      printf("Número aleatorio: %d\n", numero_aleatorio);
-      return 0;
-  }
-  ```
-
-Recuerda que, aunque estas funciones generan números pseudoaleatorios, no son verdaderamente aleatorios, ya que están determinadas por una semilla. Para obtener secuencias más aleatorias, se recomienda usar semillas diferentes, como el tiempo actual.
-
-## Funciones de fecha y hora
-
-La biblioteca `time.h` en C proporciona funciones para trabajar con fechas y horas. A continuación, se presenta una explicación detallada de algunas de estas funciones, junto con ejemplos de código:
-
-### `time(NULL)` - Obtener el Tiempo Actual en Segundos
-
-- **Descripción:** La función `time(NULL)` devuelve el tiempo actual en segundos desde el 1 de enero de 1970 (época). Es comúnmente utilizada para obtener una semilla única para la generación de números aleatorios.
-
-- **Uso:**
-  ```c
-  #include <stdio.h>
-  #include <time.h>
-
-  int main() {
-      time_t tiempo_actual;
-      tiempo_actual = time(NULL);
-      printf("Tiempo actual en segundos: %ld\n", tiempo_actual);
-      return 0;
-  }
-  ```
-
-### `clock()` - Obtener el Tiempo de CPU Consumido
-
-- **Descripción:** La función `clock()` devuelve el tiempo de CPU consumido por el programa desde su inicio, medido en ciclos de reloj. Es útil para medir el tiempo de ejecución de un programa.
-
-- **Uso:**
-  ```c
-  #include <stdio.h>
-  #include <time.h>
-
-  int main() {
-      clock_t tiempo_cpu;
-      tiempo_cpu = clock();
-      printf("Tiempo de CPU consumido: %ld ciclos de reloj\n", tiempo_cpu);
-      return 0;
-  }
-  ```
-
-### `_strdate` y `_strtime` - Obtener la Fecha y Hora Actuales como Cadena de Caracteres
-
-- **Descripción:** Las funciones `_strdate` y `_strtime` son específicas de algunas implementaciones de C (como Turbo C). Devuelven la fecha y hora actuales como cadenas de caracteres.
-
-- **Uso:**
-  ```c
-  #include <stdio.h>
-  #include <time.h>
-
-  int main() {
-      char fecha[9];
-      char hora[9];
-
-      _strdate(fecha);
-      _strtime(hora);
-
-      printf("Fecha actual: %s\n", fecha);
-      printf("Hora actual: %s\n", hora);
-
-      return 0;
-  }
-  ```
-
-### Uso de `time(NULL)` con la Función `rand()` para Generar Números Aleatorios
-
-- **Descripción:** Se puede utilizar `time(NULL)` como semilla para la función `srand()` y, posteriormente, generar números aleatorios utilizando la función `rand()`.
-
-- **Uso:**
-  ```c
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <time.h>
-
-  int main() {
-      time_t semilla = time(NULL);
-      srand((unsigned int)semilla);
-
-      int numero_aleatorio = rand();
-      printf("Número aleatorio: %d\n", numero_aleatorio);
-
-      return 0;
-  }
-  ```
-
-Estos ejemplos ilustran cómo utilizar funciones de la biblioteca `time.h` para obtener información sobre la fecha y hora actuales, así como para medir el tiempo de ejecución o utilizar el tiempo actual como semilla para la generación de números aleatorios. Ten en cuenta que algunas funciones, como `_strdate` y `_strtime`, pueden no estar disponibles en todas las implementaciones de C.
-
-## Presentación de proyecto
-## Solución del proyecto
-## Conclución

@@ -2,10 +2,10 @@
 
 ## Temario
 1. [Introducción](#Introducción)
-2. [Operadores Aritméticos](#Operadores-Aritméticos)
-3. [Operadores de Asignación](#Operadores-de-Asignación)
-4. [Operadores de Comparación](#Operadores-de-Comparación)
-5. [Operadores de Logicos](#Operadores-de-Logicos)
+2. [O. Aritméticos](#O.-Aritméticos)
+3. [O. de Asignación](#O.-de-Asignación)
+4. [O. de Comparación](#O.-de-Comparación)
+5. [O. Logicos](#O.-Logicos)
 6. [Incremento y Decremento](#Incremento-y-Decremento)
 7. [Prioridad de los Operadores](#Prioridad-de-los-Operadores)
 8. [Conversión de Datos](#Conversión-de-Datos)
@@ -14,7 +14,9 @@
 
 ## Introducción
 
-## Operadores Aritméticos
+¡Bienvenidos al emocionante mundo de los operadores en el lenguaje de programación C! Este curso te sumergirá en el fascinante universo de las operaciones aritméticas, asignación, comparación y lógicas. Exploraremos el poder de los operadores de incremento y decremento, y desvelaremos la magia de la prioridad de operadores. Conquistaremos la conversión de datos y desentrañaremos el misterio detrás del operador `sizeof()`. Prepárate para una emocionante travesía donde aprenderás a dominar estas herramientas esenciales para esculpir programas eficientes y potentes. ¡Únete a nosotros y descubre cómo los operadores dan vida a tu código en el fascinante universo de C!
+
+## O. Aritméticos
 
 Los operadores aritméticos en el lenguaje de programación C se utilizan para realizar operaciones matemáticas en variables numéricas. Aquí tienes una descripción de los operadores aritméticos comunes en C, junto con sus conceptos y ejemplos:
 
@@ -129,7 +131,7 @@ La asociatividad y el uso de paréntesis en los operadores aritméticos en el le
 
 El uso adecuado de paréntesis es fundamental para asegurar que las expresiones se evalúen de la manera esperada y para mejorar la legibilidad del código.
 
-## Operadores de Asignación
+## O. de Asignación
 
 Los operadores de asignación en el lenguaje de programación C se utilizan para asignar valores a variables. Aquí tienes una descripción de los operadores de asignación comunes en C, junto con sus conceptos y ejemplos:
 
@@ -202,7 +204,7 @@ int main() {
 
 Estos operadores de asignación son esenciales para actualizar el valor de las variables en función de operaciones aritméticas u otros cálculos. Permiten realizar operaciones y actualizar el valor de la variable en una única expresión.
 
-## Operadores de Comparación
+## O. de Comparación
 
 Los operadores de comparación en el lenguaje de programación C se utilizan para comparar dos valores y devolver un resultado booleano (`true` o `false`). Aquí tienes una descripción de los operadores de comparación comunes en C, junto con sus conceptos y ejemplos:
 
@@ -284,7 +286,7 @@ int main() {
 
 Estos operadores de comparación son fundamentales para realizar decisiones en el flujo de un programa y para evaluar expresiones lógicas en general.
 
-## Operadores de Logicos
+## O. Logicos
 
 Los operadores lógicos en el lenguaje de programación C se utilizan para realizar operaciones lógicas en variables booleanas y expresiones condicionales. Aquí tienes una descripción de los operadores lógicos comunes en C, junto con sus conceptos y ejemplos, utilizando operadores de comparación para obtener resultados booleanos:
 
@@ -364,21 +366,14 @@ Los operadores de incremento y decremento en el lenguaje de programación C se u
   y--;  // Ahora, y es 7
   ```
 
-### 3. **Posición del Operador:**
-- La posición del operador en la expresión puede afectar el resultado cuando se utiliza como parte de una expresión más grande.
-  ```c
-  int a = 5, b;
-  b = a++;  // b obtiene el valor de a antes de incrementarse, a después es 6
-  ```
-
-### 4. **Preincremento y Predecremento:**
+### 3. **Preincremento y Predecremento:**
 - Cuando el operador está antes de la variable, se llama preincremento o predecremento. En este caso, el valor se incrementa o decrementa antes de que se evalúe la expresión que contiene la variable.
   ```c
   int c = 10, d;
   d = ++c;  // c y d son ambos 11 después de esta operación
   ```
 
-### 5. **Postincremento y Postdecremento:**
+### 4. **Postincremento y Postdecremento:**
 - Cuando el operador está después de la variable, se llama postincremento o postdecremento. En este caso, el valor se incrementa o decrementa después de que se evalúa la expresión que contiene la variable.
   ```c
   int e = 7, f;
@@ -415,49 +410,67 @@ En el lenguaje de programación C, los operadores de asignación tienen una prio
 La tabla a continuación muestra algunos operadores comunes en C, ordenados por prioridad de mayor a menor:
 
 1. `()`: Paréntesis (mayor prioridad)
-2. `[]`: Corchetes
-3. `.` y `->`: Acceso a miembro de estructura y puntero a miembro
 4. `++` y `--`: Incremento y decremento unario
 5. `+`, `-`: Positivo y negativo unarios
 6. `*`, `/`, `%`: Multiplicación, división y módulo
 7. `+`, `-`: Suma y resta
-8. `<<`, `>>`: Desplazamiento de bits a la izquierda y a la derecha
 9. `<`, `<=`, `>`, `>=`: Operadores de comparación
 10. `==`, `!=`: Igualdad y desigualdad
-11. `&`: AND a nivel de bits
-12. `^`: XOR a nivel de bits
-13. `|`: OR a nivel de bits
 14. `&&`: AND lógico
 15. `||`: OR lógico
-16. `? :`: Operador ternario (condicional)
 17. `=`: Operador de asignación (asociatividad de derecha a izquierda, baja prioridad)
 
 Es importante tener en cuenta que, aunque la asignación (`=`) tiene una prioridad baja, su asociatividad de derecha a izquierda significa que las asignaciones se evalúan de derecha a izquierda en expresiones encadenadas. Esto puede tener un impacto en el resultado cuando se tienen múltiples asignaciones en una sola expresión.
 
-Vamos a crear un ejemplo con una ecuación que involucre varios operadores, incluyendo operadores de asignación, en el lenguaje de programación C:
+Aquí tienes varios ejemplos de ecuaciones combinando las reglas de prioridad de operadores que proporcionaste:
 
-```c
-#include <stdio.h>
+1. **Ecuación Simple con Operadores Aritméticos:**
+   ```c
+   int resultado = (5 * 3 + 2) / (4 - 1);
+   ```
 
-int main() {
-    int a = 5, b = 10, c = 2, d = 3;
+2. **Uso de Operadores Relacionales:**
+   ```c
+   int x = 7, y = 10;
+   int resultado = (x > 5) && (y <= 15);
+   ```
 
-    int resultado = a * b + (c > d ? c : d) / 2; // Ejemplo de expresión
+3. **Combinación de Operadores Aritméticos y Lógicos:**
+   ```c
+   int a = 8, b = 4, c = 2;
+   int resultado = (a / b) + (c % 2 == 0);
+   ```
 
-    printf("Resultado: %d\n", resultado);
+4. **Incremento y Decremento Unario:**
+   ```c
+   int i = 5, j = 3;
+   int resultado = ++i * j--;
+   ```
 
-    return 0;
-}
-```
+5. **Operadores Aritméticos con Asignación:**
+   ```c
+   int x = 10;
+   x += 5 * 2;
+   ```
 
-En este ejemplo:
+6. **Operadores Lógicos con Paréntesis:**
+   ```c
+   int a = 3, b = 7, c = 12;
+   int resultado = (a < b) || (c > b) && (a == c);
+   ```
 
-- `a * b`: Multiplicación de `a` por `b`.
-- `(c > d ? c : d)`: Operador ternario que evalúa si `c` es mayor que `d`. Si es verdadero, se selecciona `c`, de lo contrario, se selecciona `d`.
-- `... / 2`: La expresión del operador ternario se divide por `2`.
-- `resultado = ...`: El resultado se asigna a la variable `resultado` utilizando el operador de asignación.
+7. **Uso de Paréntesis para Controlar Prioridad:**
+   ```c
+   int resultado = (10 + 5) * 2 / (4 - 2);
+   ```
 
-Recuerda que en C, las expresiones se evalúan de acuerdo con la prioridad y asociatividad de los operadores, y es importante usar paréntesis para asegurar el orden deseado de evaluación cuando sea necesario. En este ejemplo, los paréntesis se utilizan para controlar la evaluación de la expresión dentro del operador ternario antes de la división.
+8. **Combinación Compleja:**
+   ```c
+   int x = 5, y = 8, z = 3;
+   int resultado = (x++ * 2 + y) / (z - 1) == (y % 3) && (z < x);
+   ```
+
+Estos ejemplos ilustran cómo puedes combinar diferentes operadores y reglas de prioridad para construir ecuaciones más complejas en C. Recuerda que los paréntesis te permiten controlar explícitamente el orden de evaluación.
 
 ## Conversión de Datos
 
@@ -570,3 +583,5 @@ printf("El tamaño de un int es: %zu bytes\n", sizeof(int));
 El operador `sizeof()` es una herramienta valiosa para escribir código portátil y para gestionar la asignación dinámica de memoria de manera eficiente.
 
 ## Resumen
+
+¡Felicidades por completar la sección de "Operadores en el lenguaje de programación C"! En este viaje, exploraste el fascinante mundo de los operadores, desde los aritméticos que te permiten realizar cálculos precisos hasta los de asignación que simplifican la manipulación de variables. Has dominado los operadores de comparación y lógicos, construyendo decisiones fundamentales en tu código. Además, te sumergiste en el intrigante universo del incremento y decremento. Comprendiste la importancia de la prioridad de los operadores y cómo controlarla con paréntesis. La capacidad de convertir datos y utilizar el operador `sizeof()` también se ha vuelto parte de tu caja de herramientas. ¡Excelente trabajo!

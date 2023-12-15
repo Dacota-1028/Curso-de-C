@@ -1,4 +1,4 @@
-# Control de flujo
+# Estructuras de selección
 
 ## Temario
 1. [Introducción](#Introducción)
@@ -7,16 +7,15 @@
 4. [switch](#switch)
 5. [Condiones anidados](#Condiones-anidados)
 6. [Operador ternario](#Operador-ternario)
-7. [Introducción](#Introducción)
-8. [Introducción](#Introducción)
-9. [Introducción](#Introducción)
-10. [Introducción](#Introducción)
+7. [Resumen](#Resumen)
 
 # Introducción
 
+Bienvenido al curso de "Control de Flujo en C". En esta sección, exploraremos las herramientas fundamentales para dirigir el flujo de ejecución en tus programas en C. Desde las simples decisiones con `if-else` hasta estructuras más complejas con `else-if` y `switch`, aprenderás a tomar decisiones condicionales de manera efectiva. Descubre cómo manejar condiciones anidadas para casos más específicos y domina el operador ternario para expresiones condicionales concisas. Mejora tu capacidad para estructurar y controlar el comportamiento de tus programas, un paso crucial en el camino hacia convertirte en un programador competente en el lenguaje C. ¡Comencemos a explorar el control de flujo!
+
 ## If-else
 
-La estructura de control `if-else` en programación se utiliza para tomar decisiones basadas en una condición. Esta estructura es fundamental para el control del flujo del programa. A continuación, te proporciono una explicación y un ejemplo simple basado en una situación de la vida real:
+En programación, la instrucción "if" es fundamental para la toma de decisiones. Funciona como una bifurcación en el camino, permitiendo que el programa tome diferentes rutas basadas en condiciones lógicas. Esta estructura se asemeja a las decisiones que tomamos a diario en la vida real.
 
 ### Sintaxis de `if-else`:
 
@@ -34,7 +33,7 @@ if (condicion) {
 - Si la `condicion` es verdadera, se ejecutará el bloque de código dentro del primer conjunto de llaves (`{}`) después de `if`.
 - Si la `condicion` es falsa, se ejecutará el bloque de código dentro del segundo conjunto de llaves (`{}`) después de `else`.
 
-### Ejemplo Basado en la Vida Real:
+### Ejemplo:
 
 Supongamos que queremos implementar un programa simple que verifica si un usuario tiene la edad suficiente para conducir. Si la edad es mayor o igual a 18, imprimimos un mensaje indicando que el usuario puede conducir; de lo contrario, imprimimos un mensaje indicando que no puede conducir.
 
@@ -68,53 +67,13 @@ En este ejemplo:
 
 Este es un ejemplo simple, pero la estructura `if-else` se puede utilizar para manejar decisiones más complejas en programas más grandes. Es una forma fundamental de controlar el flujo de ejecución en la mayoría de los programas.
 
-En el lenguaje de programación C, la instrucción `if` y `else` normalmente se utiliza con llaves `{}` para delimitar el bloque de código que se ejecutará condicionalmente. Sin embargo, si solo hay una instrucción en cada bloque, las llaves son opcionales. Esto es especialmente cierto cuando trabajas con un solo comando después de `if` o `else`.
-
-Aquí tienes un ejemplo que ilustra cómo usar `if` y `else` sin llaves:
-
-```c
-#include <stdio.h>
-
-int main() {
-    int numero = 10;
-
-    // Ejemplo de if sin llaves
-    if (numero > 5)
-        printf("El numero es mayor que 5.\n");
-    else
-        printf("El numero no es mayor que 5.\n");
-
-    return 0;
-}
-```
-
-En este ejemplo, la instrucción `if` y la instrucción `else` tienen una sola línea de código después de ellas, por lo que las llaves no son necesarias. Sin embargo, ten en cuenta que esto solo es válido cuando hay una única instrucción después de `if` o `else`. Si necesitas ejecutar múltiples instrucciones condicionalmente, entonces las llaves son obligatorias para agruparlas en un bloque.
-
-En el lenguaje de programación C, el uso de `if` en una sola línea sin llaves es posible, siempre que se tenga en cuenta que solo la siguiente instrucción después del `if` (o `else`) está condicionada.
-
-Aquí hay un ejemplo:
-
-```c
-#include <stdio.h>
-
-int main() {
-    int numero = 10;
-
-    // Ejemplo de if en una sola línea
-    if (numero > 5) printf("El numero es mayor que 5.\n");
-    else printf("El numero no es mayor que 5.\n");
-
-    return 0;
-}
-```
-
-En este caso, la instrucción `printf` que sigue a cada `if` o `else` está condicionada por la evaluación de la expresión correspondiente. Si la expresión dentro del `if` es verdadera, se ejecuta la primera instrucción; de lo contrario, se ejecuta la segunda instrucción después del `else`.
-
-Es importante tener en cuenta que, aunque este estilo puede hacer que el código sea más conciso, también puede hacer que el código sea menos legible, especialmente si hay múltiples instrucciones dentro del bloque `if` o `else`. Se recomienda utilizar llaves `{}` para agrupar las instrucciones, incluso si son solo una línea, para mejorar la claridad y evitar errores potenciales.
-
 ## else-if
 
-La estructura `else-if` en programación se utiliza para evaluar múltiples condiciones de manera secuencial. Permite encadenar varias condiciones después de un `if` y antes de un posible `else`. Aquí está la sintaxis y un ejemplo simple basado en una situación de la vida real:
+La estructura `else-if` en programación es una extensión lógica de la instrucción `if`. Mientras que `if` permite realizar una acción si una condición es verdadera, `else-if` proporciona una manera de verificar condiciones adicionales si la primera no se cumple.
+
+En términos simples, `else-if` se utiliza cuando hay múltiples condiciones posibles, y queremos ejecutar un bloque de código específico en función de la primera condición verdadera encontrada. Este mecanismo es especialmente útil para gestionar situaciones complejas en las que una única decisión no es suficiente.
+
+En la vida cotidiana, podríamos comparar esto con tomar decisiones graduales basadas en varias variables. Por ejemplo, cuando decides qué ropa ponerte para el día, podrías considerar primero si está lloviendo (`if lluvia`), luego si hace frío (`else-if frío`), y así sucesivamente. Cada condición adicional (`else-if`) refina tu elección en función de la situación actual.
 
 ### Sintaxis de `else-if`:
 
@@ -130,7 +89,7 @@ if (condicion1) {
 }
 ```
 
-### Ejemplo Basado en la Vida Real:
+### Ejemplo:
 
 Supongamos que queremos implementar un programa que clasifica la calidad de un producto según una puntuación proporcionada por el usuario. Utilizaremos rangos para determinar la clasificación: 0-3 malo, 4-6 regular, 7-8 bueno, 9-10 excelente.
 
@@ -172,7 +131,7 @@ La estructura `else-if` es útil cuando hay múltiples condiciones que deben eva
 
 ## switch
 
-La estructura `switch` en programación se utiliza para evaluar una expresión o variable y tomar decisiones basadas en diferentes valores posibles de esa expresión. Aquí está la sintaxis y un ejemplo simple basado en una situación de la vida real:
+La instrucción `switch` en programación C es una estructura de control que permite realizar múltiples casos de comparación sobre el valor de una expresión. Es especialmente útil cuando se quiere evaluar una variable para determinar si coincide con alguno de varios valores posibles. En lugar de utilizar múltiples declaraciones `if-else`, `switch` proporciona una forma más clara y eficiente de manejar múltiples casos. Cada `case` en un bloque `switch` representa una posible coincidencia, y el flujo de control se desplaza al `case` que coincide con el valor de la expresión evaluada. La instrucción `switch` también puede tener un `default`, que se ejecuta si ningún `case` coincide.
 
 ### Sintaxis de `switch`:
 
@@ -190,7 +149,7 @@ switch (expresion) {
 }
 ```
 
-### Ejemplo Basado en la Vida Real:
+### Ejemplo:
 
 Supongamos que queremos implementar un programa que informa el día de la semana según un número proporcionado por el usuario, donde 1 representa lunes, 2 representa martes, y así sucesivamente. También queremos manejar el caso en que el usuario ingresa un valor fuera del rango válido.
 
@@ -336,7 +295,9 @@ Es importante manejar las condiciones anidadas con cuidado para evitar la comple
 
 ## Operador ternario
 
-El operador ternario, también conocido como operador condicional, es una expresión que permite tomar decisiones en una sola línea de código. Es una forma compacta de escribir una estructura `if-else`. La sintaxis general del operador ternario es:
+El operador ternario, también conocido como operador condicional, es una construcción que permite realizar una evaluación condicional de manera más compacta. Se utiliza para expresar una operación condicional de manera concisa sin necesidad de usar una declaración "if-else". Este operador toma tres operandos: la condición a evaluar, la expresión que se devuelve si la condición es verdadera, y la expresión que se devuelve si la condición es .
+
+La sintaxis general del operador ternario es:
 
 ```c
 condicion ? expresion_verdadera : expresion_falsa;
@@ -396,3 +357,7 @@ int main() {
 ```
 
 Ambas versiones producirán el mismo resultado, pero el operador ternario es más conciso y a menudo se utiliza cuando se desea realizar una simple asignación basada en una condición. Es importante usar el operador ternario de manera moderada para mantener la legibilidad del código.
+
+## Resumen
+
+"Hemos concluido exitosamente la sección de Control de Flujo en C, donde exploramos las estructuras esenciales para dirigir el flujo de ejecución en programas. Iniciamos con el clásico 'if-else', permitiendo decisiones basadas en condiciones. Avanzamos a estructuras más complejas con 'else-if', brindando flexibilidad en múltiples elecciones. Introdujimos 'switch' para alternativas claras en situaciones específicas. Profundizamos en condiciones anidadas, permitiendo evaluaciones más detalladas. Finalmente, exploramos el operador ternario para expresiones concisas. Felicidades por completar esta sección fundamental; ahora posees las herramientas para controlar eficientemente el flujo en tus programas C. ¡A seguir avanzando con confianza!"
